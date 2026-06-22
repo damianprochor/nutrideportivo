@@ -1,23 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NutriDeportivo</title>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { background: #0D1F0F; }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="text/babel" data-type="module">
-      import App from './nutrijugador.jsx';
-      const root = ReactDOM.createRoot(document.getElementById('root'));
-      root.render(React.createElement(App));
-    </script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriDeportivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #0D1F0F; color: #F5F0E8; }
+    .app { min-height: 100vh; display: flex; flex-direction: column; max-width: 430px; margin: 0 auto; }
+    .cancha-strip { height: 4px; background: repeating-linear-gradient(90deg, #A8E63D 0 60px, transparent 60px 80px); }
+    .nav { background: #1A3A1C; border-bottom: 1px solid #2B5E2E; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; }
+    .nav-logo { font-size: 18px; font-weight: 900; color: #A8E63D; }
+    .nav-logo span { color: #F5F0E8; }
+    .tabbar { display: flex; background: #1A3A1C; border-top: 1px solid #2B5E2E; }
+    .tab { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; color: #D4C9A8; cursor: pointer; border: none; background: none; font-family: inherit; }
+    .tab.active { color: #A8E63D; }
+    .tab-icon { font-size: 20px; }
+    .screen { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+    .card { background: #1A3A1C; border: 1px solid #2B5E2E; border-radius: 12px; padding: 16px; }
+    .card-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6B9C22; margin-bottom: 10px; }
+    .hero-stat { display: flex; gap: 12px; align-items: center; }
+    .hero-num { font-size: 52px; font-weight: 900; line-height: 1; color: #A8E63D; letter-spacing: -3px; }
+    .hero-label { font-size: 13px; color: #D4C9A8; line-height: 1.4; }
+    .hero-label strong { display: block; font-size: 15px; color: #F5F0E8; }
+    .pbar-wrap { margin-top: 8px; }
+    .pbar-label { display: flex; justify-content: space-between; font-size: 12px; color: #D4C9A8; margin-bottom: 5px; }
+    .pbar { height: 8px; background: #0D1F0F; border-radius: 4px; overflow: hidden; }
+    .pbar-fill { height: 100%; background: #A8E63D; border-radius: 4px; transition: width .5s; }
+    .pbar-fill.amber { background: #F5A623; }
+    .pbar-fill.red { background: #E84040; }
+    .food-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #2B5E2E; }
+    .food-row:last-child { border-bottom: none; }
+    .food-emoji { font-size: 26px; }
+    .food-info { flex: 1; }
+    .food-name { font-size: 14px; font-weight: 600; color: #F5F0E8; }
+    .food-macro { font-size: 12px; color: #D4C9A8; margin-top: 2px; }
+    .food-kcal { font-size: 16px; font-weight: 700; color: #A8E63D; }
+    .add-btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 13px; background: #A8E63D; color: #0D1F0F; font-size: 14px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; font-family: inherit; }
+    .add-btn:disabled { opacity: 0.6; }
+    .chip { background: #0D1F0F; border: 1px solid #2B5E2E; border-radius: 20px; padding: 6px 12px; font-size: 12px; color: #D4C9A8; cursor: pointer; }
+    .chip.sel { border-color: #A8E63D; color: #A8E63D; }
+    .ai-box { background: #0D1F0F; border: 1px solid #2B5E2E; border-left: 3px solid #A8E63D; border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.7; color: #F5F0E8; white-space: pre-wrap; }
+    .ai-box.loading { color: #6B9C22; font-style: italic; }
+    .alert { display: flex; gap: 10px; background: #2A1A0A; border: 1px solid #F5A623; border-radius: 10px; padding: 12px; }
+    .alert-text { font-size: 13px; color: #F5A623; line-height: 1.5; }
+    .player-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #2B5E2E; cursor: pointer; }
+    .player-row:last-child { border-bottom: none; }
+    .player-avatar { width: 42px; height: 42px; border-radius: 50%; background: #0D1F0F; display: flex; align-items: center; justify-content: center; font-size: 20px; border: 2px solid #2B5E2E; }
+    .player-name { font-size: 14px; font-weight: 600; color: #F5F0E8; }
+    .player-sub { font-size: 12px; color: #D4C9A8; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; margin-left: auto; }
+    .status-dot.ok { background: #A8E63D; }
+    .status-dot.warn { background: #F5A623; }
+    .status-dot.bad { background: #E84040; }
+    .field-input { background: #0D1F0F; border: 1px solid #2B5E2E; border-radius: 8px; padding: 10px 12px; font-size: 14px; color: #F5F0E8; font-family: inherit; width: 100%; }
+    .role-toggle { display: flex; background: #0D1F0F; border-radius: 8px; overflow: hidden; border: 1px solid #2B5E2E; }
+    .role-btn { flex: 1; padding: 8px 12px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; background: transparent; color: #D4C9A8; font-family: inherit; }
+    .role-btn.active { background: #A8E63D; color: #0D1F0F; }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.8); display: flex; align-items: flex-end; justify-content: center; z-index: 100; }
+    .modal { background: #1A3A1C; border-radius: 16px 16px 0 0; padding: 20px 16px; width: 100%; max-width: 430px; border-top: 1px solid #2B5E2E; }
+    .modal-handle { width: 36px; height: 4px; background: #2B5E2E; border-radius: 2px; margin: 0 auto 18px; }
+    .modal-title { font-size: 16px; font-weight: 700; color: #F5F0E8; margin-bottom: 14px; }
+    .section-hdr { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6B9C22; padding: 4px 0 8px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+    const PLAYER = { name: "Tomás Herrera", age: 16, weight: 62, height: 172, position: "Volante", kcalGoal: 2800, proteinGoal: 140 };
+    const TODAY_LOG = [
+      { id:1, emoji:"🍳", name:"Huevos revueltos (3)", kcal:210, p:18, c:2, g:14, time:"07:30" },
+      { id:2, emoji:"🍞", name:"Pan marraqueta (2)", kcal:240, p:8, c:46, g:3, time:"07:30" },
+      { id:3, emoji:"🥛", name:"Leche (200ml)", kcal:100, p:7, c:10, g:3, time:"10:15" },
+      { id:4, emoji:"🍚", name:"Arroz c/ pollo (plato)", kcal:420, p:32, c:48, g:8, time:"13:00" },
+    ];
+    const TEAM = [
+      { id:1, name:"Tomás Herrera", pos:"Volante", kcal:970, goal:2800, status:"warn", emoji:"⚡" },
+      { id:2, name:"Bruno Salinas", pos:"Defensa", kcal:2100, goal:2400, status:"ok", emoji:"🛡️" },
+      { id:3, name:"Mateo Fuentes", pos:"Delantero", kcal:400, goal:3000, status:"bad", emoji:"🔥" },
+      { id:4, name:"Ignacio Vera", pos:"Arco", kcal:1900, goal:2600, status:"ok", emoji:"🧤" },
+    ];
+    const QUICK_FOODS = [
+      { emoji:"🍌", name:"Plátano", kcal:90, p:1, c:23, g:0 },
+      { emoji:"🥚", name:"Huevo duro", kcal:70, p:6, c:0, g:5 },
+      { emoji:"🍞", name:"Pan marraqueta", kcal:120, p:4, c:23, g:1 },
+      { emoji:"🥛", name:"Leche (200ml)", kcal:100, p:7, c:10, g:3 },
+      { emoji:"🍚", name:"Arroz c/ pollo", kcal:420, p:32, c:48, g:8 },
+      { emoji:"🫘", name:"Lentejas (plato)", kcal:230, p:18, c:40, g:1 },
+    ];
+
+    function PBar({ label, val, max }) {
+      const pct = Math.min((val/max)*100, 100);
+      const cls = pct>90 ? "red" : pct>60 ? "amber" : "";
+      return (
+        <div className="pbar-wrap">
+          <div className="pbar-label"><span>{label}</span><span>{val} / {max}</span></div>
+          <div className="pbar"><div className={"pbar-fill "+cls} style={{width:pct+"%"}} /></div>
+        </div>
+      );
+    }
+
+    async function askClaude(prompt) {
+      try {
+        const res = await fetch("https://api.anthropic.com/v1/messages", {
+          method:"POST",
+          headers:{"Content-Type":"application/json","x-api-key":window.ANTHROPIC_KEY||"","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+          body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:800,messages:[{role:"user",content:prompt}]}),
+        });
+        const d = await res.json();
+        return d.content?.map(b=>b.text||"").join("\n") || "Sin respuesta.";
+      } catch(e) { return "Cargá la API key para activar la IA."; }
+    }
+
+    function PlayerHome({ log, onAdd }) {
+      const kcal = log.reduce((s,f)=>s+f.kcal,0);
+      const prot = log.reduce((s,f)=>s+f.p,0);
+      const pct = Math.round((kcal/PLAYER.kcalGoal)*100);
+      return (
+        <div className="screen">
+          <div className="card">
+            <div className="card-title">Hoy · {new Date().toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"short"})}</div>
+            <div className="hero-stat">
+              <div className="hero-num">{pct}<span style={{fontSize:24}}>%</span></div>
+              <div className="hero-label"><strong>{kcal} kcal consumidas</strong>Meta: {PLAYER.kcalGoal} kcal · Masa muscular</div>
+            </div>
+            <PBar label="Proteína (g)" val={prot} max={PLAYER.proteinGoal} />
+            <PBar label="Calorías" val={kcal} max={PLAYER.kcalGoal} />
+          </div>
+          {pct<50 && <div className="alert"><span style={{fontSize:18}}>⚠️</span><div className="alert-text">Llevás menos de la mitad de tus calorías. Tu entrenador será notificado.</div></div>}
+          <div className="card">
+            <div className="card-title">Registro de comidas</div>
+            {log.map(f=>(
+              <div className="food-row" key={f.id}>
+                <div className="food-emoji">{f.emoji}</div>
+                <div className="food-info"><div className="food-name">{f.name}</div><div className="food-macro">P {f.p}g · C {f.c}g · G {f.g}g · {f.time}</div></div>
+                <div className="food-kcal">{f.kcal}</div>
+              </div>
+            ))}
+            <div style={{marginTop:12}}><button className="add-btn" onClick={onAdd}>＋ Agregar comida</button></div>
+          </div>
+        </div>
+      );
+    }
+
+    function PlayerPlan() {
+      const [plan,setPlan] = useState(null);
+      const [loading,setLoading] = useState(false);
+      async function generate() {
+        setLoading(true); setPlan(null);
+        const r = await askClaude("Eres nutricionista deportivo para jugadores jóvenes de escasos recursos en Latinoamérica. Jugador: Tomás, 16 años, 62kg, 172cm, volante de fútbol, objetivo masa muscular, meta 2800 kcal y 140g proteína. Generá un plan de 5 comidas para hoy usando solo alimentos económicos: huevo, leche, arroz, lentejas, pan, plátano, avena, pollo, atún, papa. Para cada comida: nombre, ingredientes con gramos, calorías y proteína. Sin markdown, texto directo y amigable.");
+        setPlan(r); setLoading(false);
+      }
+      return (
+        <div className="screen">
+          <div className="card">
+            <div className="card-title">Plan de comidas · IA</div>
+            <p style={{fontSize:13,color:"#D4C9A8",lineHeight:1.6,marginBottom:12}}>Generado según tu peso, posición y objetivo. Solo alimentos económicos.</p>
+            <button className="add-btn" onClick={generate} disabled={loading}>{loading?"Generando…":"🤖 Generar mi plan de hoy"}</button>
+          </div>
+          {loading && <div className="ai-box loading">Preparando tu plan…</div>}
+          {plan && <div className="ai-box">{plan}</div>}
+          {!plan&&!loading&&(
+            <div className="card">
+              <div className="card-title">Qué considero</div>
+              {[["⚖️","Peso y talla actuales"],["🎯","Objetivo: masa muscular"],["🏃","Posición: Volante"],["💰","Alimentos económicos"]].map(([i,t])=>(
+                <div key={t} style={{display:"flex",gap:10,alignItems:"center",fontSize:13,color:"#D4C9A8",padding:"4px 0"}}><span style={{fontSize:18}}>{i}</span>{t}</div>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    function CoachView() {
+      const [sel,setSel] = useState(null);
+      const [advice,setAdvice] = useState(null);
+      const [loading,setLoading] = useState(false);
+      async function getAdvice(p) {
+        setSel(p); setAdvice(null); setLoading(true);
+        const pct = Math.round((p.kcal/p.goal)*100);
+        const r = await askClaude("Entrenador deportivo. Jugador: "+p.name+", "+p.pos+". Lleva "+p.kcal+" kcal de "+p.goal+" ("+pct+"%). Redactá en 3 líneas: qué problema hay, qué consecuencia tiene en el rendimiento y UNA acción concreta y económica para hoy.");
+        setAdvice(r); setLoading(false);
+      }
+      return (
+        <div className="screen">
+          <div className="card">
+            <div className="card-title">Estado del equipo · Hoy</div>
+            {TEAM.map(p=>{
+              const pct=Math.round((p.kcal/p.goal)*100);
+              return (
+                <div className="player-row" key={p.id} onClick={()=>getAdvice(p)}>
+                  <div className="player-avatar">{p.emoji}</div>
+                  <div style={{flex:1}}>
+                    <div className="player-name">{p.name}</div>
+                    <div className="player-sub">{p.pos} · {pct}% meta calórica</div>
+                    <div className="pbar" style={{marginTop:5}}><div className={"pbar-fill "+(p.status==="ok"?"":p.status==="warn"?"amber":"red")} style={{width:Math.min(pct,100)+"%"}} /></div>
+                  </div>
+                  <div className={"status-dot "+p.status} />
+                </div>
+              );
+            })}
+          </div>
+          {(loading||advice)&&(
+            <div className="card">
+              <div className="card-title">Alerta IA · {sel&&sel.name}</div>
+              {loading?<div className="ai-box loading">Analizando…</div>:<div className="ai-box">{advice}</div>}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    function AddFoodModal({ onClose, onAdd }) {
+      const [sel,setSel]=useState(null);
+      const [custom,setCustom]=useState("");
+      const [aiLoading,setAiLoading]=useState(false);
+      const [aiResult,setAiResult]=useState(null);

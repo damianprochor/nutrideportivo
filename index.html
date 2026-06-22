@@ -1,225 +1,271 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NutriDeportivo</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #0D1F0F; color: #F5F0E8; }
-    .app { min-height: 100vh; display: flex; flex-direction: column; max-width: 430px; margin: 0 auto; }
-    .cancha-strip { height: 4px; background: repeating-linear-gradient(90deg, #A8E63D 0 60px, transparent 60px 80px); }
-    .nav { background: #1A3A1C; border-bottom: 1px solid #2B5E2E; }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; }
-    .nav-logo { font-size: 18px; font-weight: 900; color: #A8E63D; }
-    .nav-logo span { color: #F5F0E8; }
-    .tabbar { display: flex; background: #1A3A1C; border-top: 1px solid #2B5E2E; }
-    .tab { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; color: #D4C9A8; cursor: pointer; border: none; background: none; font-family: inherit; }
-    .tab.active { color: #A8E63D; }
-    .tab-icon { font-size: 20px; }
-    .screen { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
-    .card { background: #1A3A1C; border: 1px solid #2B5E2E; border-radius: 12px; padding: 16px; }
-    .card-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6B9C22; margin-bottom: 10px; }
-    .hero-stat { display: flex; gap: 12px; align-items: center; }
-    .hero-num { font-size: 52px; font-weight: 900; line-height: 1; color: #A8E63D; letter-spacing: -3px; }
-    .hero-label { font-size: 13px; color: #D4C9A8; line-height: 1.4; }
-    .hero-label strong { display: block; font-size: 15px; color: #F5F0E8; }
-    .pbar-wrap { margin-top: 8px; }
-    .pbar-label { display: flex; justify-content: space-between; font-size: 12px; color: #D4C9A8; margin-bottom: 5px; }
-    .pbar { height: 8px; background: #0D1F0F; border-radius: 4px; overflow: hidden; }
-    .pbar-fill { height: 100%; background: #A8E63D; border-radius: 4px; transition: width .5s; }
-    .pbar-fill.amber { background: #F5A623; }
-    .pbar-fill.red { background: #E84040; }
-    .food-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #2B5E2E; }
-    .food-row:last-child { border-bottom: none; }
-    .food-emoji { font-size: 26px; }
-    .food-info { flex: 1; }
-    .food-name { font-size: 14px; font-weight: 600; color: #F5F0E8; }
-    .food-macro { font-size: 12px; color: #D4C9A8; margin-top: 2px; }
-    .food-kcal { font-size: 16px; font-weight: 700; color: #A8E63D; }
-    .add-btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 13px; background: #A8E63D; color: #0D1F0F; font-size: 14px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; font-family: inherit; }
-    .add-btn:disabled { opacity: 0.6; }
-    .chip { background: #0D1F0F; border: 1px solid #2B5E2E; border-radius: 20px; padding: 6px 12px; font-size: 12px; color: #D4C9A8; cursor: pointer; }
-    .chip.sel { border-color: #A8E63D; color: #A8E63D; }
-    .ai-box { background: #0D1F0F; border: 1px solid #2B5E2E; border-left: 3px solid #A8E63D; border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.7; color: #F5F0E8; white-space: pre-wrap; }
-    .ai-box.loading { color: #6B9C22; font-style: italic; }
-    .alert { display: flex; gap: 10px; background: #2A1A0A; border: 1px solid #F5A623; border-radius: 10px; padding: 12px; }
-    .alert-text { font-size: 13px; color: #F5A623; line-height: 1.5; }
-    .player-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #2B5E2E; cursor: pointer; }
-    .player-row:last-child { border-bottom: none; }
-    .player-avatar { width: 42px; height: 42px; border-radius: 50%; background: #0D1F0F; display: flex; align-items: center; justify-content: center; font-size: 20px; border: 2px solid #2B5E2E; }
-    .player-name { font-size: 14px; font-weight: 600; color: #F5F0E8; }
-    .player-sub { font-size: 12px; color: #D4C9A8; }
-    .status-dot { width: 8px; height: 8px; border-radius: 50%; margin-left: auto; }
-    .status-dot.ok { background: #A8E63D; }
-    .status-dot.warn { background: #F5A623; }
-    .status-dot.bad { background: #E84040; }
-    .field-input { background: #0D1F0F; border: 1px solid #2B5E2E; border-radius: 8px; padding: 10px 12px; font-size: 14px; color: #F5F0E8; font-family: inherit; width: 100%; }
-    .role-toggle { display: flex; background: #0D1F0F; border-radius: 8px; overflow: hidden; border: 1px solid #2B5E2E; }
-    .role-btn { flex: 1; padding: 8px 12px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; background: transparent; color: #D4C9A8; font-family: inherit; }
-    .role-btn.active { background: #A8E63D; color: #0D1F0F; }
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.8); display: flex; align-items: flex-end; justify-content: center; z-index: 100; }
-    .modal { background: #1A3A1C; border-radius: 16px 16px 0 0; padding: 20px 16px; width: 100%; max-width: 430px; border-top: 1px solid #2B5E2E; }
-    .modal-handle { width: 36px; height: 4px; background: #2B5E2E; border-radius: 2px; margin: 0 auto 18px; }
-    .modal-title { font-size: 16px; font-weight: 700; color: #F5F0E8; margin-bottom: 14px; }
-    .section-hdr { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6B9C22; padding: 4px 0 8px; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#0D1F0F;color:#F5F0E8;min-height:100vh}
+    #app{max-width:430px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+    .strip{height:4px;background:repeating-linear-gradient(90deg,#A8E63D 0 60px,transparent 60px 80px)}
+    .nav{background:#1A3A1C;border-bottom:1px solid #2B5E2E;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:18px;font-weight:900;color:#A8E63D}
+    .logo span{color:#F5F0E8}
+    .rtoggle{display:flex;background:#0D1F0F;border-radius:8px;overflow:hidden;border:1px solid #2B5E2E}
+    .rbtn{flex:1;padding:7px 12px;font-size:12px;font-weight:700;border:none;cursor:pointer;background:transparent;color:#D4C9A8;font-family:inherit}
+    .rbtn.on{background:#A8E63D;color:#0D1F0F}
+    .screen{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+    .card{background:#1A3A1C;border:1px solid #2B5E2E;border-radius:12px;padding:16px}
+    .ctitle{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#6B9C22;margin-bottom:10px}
+    .hstat{display:flex;gap:12px;align-items:center}
+    .hnum{font-size:48px;font-weight:900;color:#A8E63D;line-height:1}
+    .hlabel{font-size:13px;color:#D4C9A8;line-height:1.5}
+    .hlabel strong{display:block;font-size:15px;color:#F5F0E8}
+    .pb-wrap{margin-top:8px}
+    .pb-labels{display:flex;justify-content:space-between;font-size:11px;color:#D4C9A8;margin-bottom:4px}
+    .pb{height:8px;background:#0D1F0F;border-radius:4px;overflow:hidden}
+    .pb-fill{height:100%;background:#A8E63D;border-radius:4px;transition:width .5s}
+    .pb-fill.am{background:#F5A623}
+    .pb-fill.rd{background:#E84040}
+    .frow{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #2B5E2E}
+    .frow:last-child{border-bottom:none}
+    .fem{font-size:24px}
+    .fin{flex:1}
+    .fn{font-size:14px;font-weight:600;color:#F5F0E8}
+    .fm{font-size:12px;color:#D4C9A8;margin-top:2px}
+    .fk{font-size:15px;font-weight:700;color:#A8E63D}
+    .btn{display:flex;align-items:center;justify-content:center;width:100%;padding:13px;background:#A8E63D;color:#0D1F0F;font-size:14px;font-weight:700;border:none;border-radius:10px;cursor:pointer;font-family:inherit;margin-top:12px}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+    .alert{display:flex;gap:10px;background:#2A1A0A;border:1px solid #F5A623;border-radius:10px;padding:12px}
+    .alert-t{font-size:13px;color:#F5A623;line-height:1.5}
+    .ai-box{background:#0D1F0F;border:1px solid #2B5E2E;border-left:3px solid #A8E63D;border-radius:8px;padding:14px;font-size:13px;line-height:1.7;color:#F5F0E8;white-space:pre-wrap}
+    .ai-box.load{color:#6B9C22;font-style:italic}
+    .prow{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #2B5E2E;cursor:pointer}
+    .prow:last-child{border-bottom:none}
+    .pav{width:40px;height:40px;border-radius:50%;background:#0D1F0F;display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid #2B5E2E;flex-shrink:0}
+    .pn{font-size:14px;font-weight:600;color:#F5F0E8}
+    .ps{font-size:12px;color:#D4C9A8}
+    .dot{width:8px;height:8px;border-radius:50%;margin-left:auto;flex-shrink:0}
+    .dot.ok{background:#A8E63D}
+    .dot.warn{background:#F5A623}
+    .dot.bad{background:#E84040}
+    .tabbar{display:flex;background:#1A3A1C;border-top:1px solid #2B5E2E}
+    .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 4px;font-size:10px;font-weight:700;text-transform:uppercase;color:#D4C9A8;cursor:pointer;border:none;background:none;font-family:inherit}
+    .tab.on{color:#A8E63D}
+    .ticon{font-size:20px}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:flex-end;justify-content:center;z-index:100}
+    .modal{background:#1A3A1C;border-radius:16px 16px 0 0;padding:20px 16px;width:100%;max-width:430px;border-top:1px solid #2B5E2E;max-height:80vh;overflow-y:auto}
+    .mhandle{width:36px;height:4px;background:#2B5E2E;border-radius:2px;margin:0 auto 16px}
+    .mtitle{font-size:16px;font-weight:700;color:#F5F0E8;margin-bottom:14px}
+    .shdr{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#6B9C22;padding:4px 0 8px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+    .chip{background:#0D1F0F;border:1px solid #2B5E2E;border-radius:20px;padding:6px 12px;font-size:12px;color:#D4C9A8;cursor:pointer}
+    .chip.on{border-color:#A8E63D;color:#A8E63D}
+    .finput{background:#0D1F0F;border:1px solid #2B5E2E;border-radius:8px;padding:10px 12px;font-size:14px;color:#F5F0E8;font-family:inherit;flex:1}
+    .row{display:flex;gap:8px;align-items:center}
+    .sbtn{padding:10px 14px;background:#A8E63D;color:#0D1F0F;font-size:12px;font-weight:700;border:none;border-radius:8px;cursor:pointer;font-family:inherit}
+    .tip{font-size:12px;color:#D4C9A8;line-height:1.6;margin-bottom:12px}
+    .irow{display:flex;gap:10px;align-items:center;padding:4px 0;font-size:13px;color:#D4C9A8}
   </style>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="text/babel">
-    const { useState } = React;
-    const PLAYER = { name: "Tomás Herrera", age: 16, weight: 62, height: 172, position: "Volante", kcalGoal: 2800, proteinGoal: 140 };
-    const TODAY_LOG = [
-      { id:1, emoji:"🍳", name:"Huevos revueltos (3)", kcal:210, p:18, c:2, g:14, time:"07:30" },
-      { id:2, emoji:"🍞", name:"Pan marraqueta (2)", kcal:240, p:8, c:46, g:3, time:"07:30" },
-      { id:3, emoji:"🥛", name:"Leche (200ml)", kcal:100, p:7, c:10, g:3, time:"10:15" },
-      { id:4, emoji:"🍚", name:"Arroz c/ pollo (plato)", kcal:420, p:32, c:48, g:8, time:"13:00" },
-    ];
-    const TEAM = [
-      { id:1, name:"Tomás Herrera", pos:"Volante", kcal:970, goal:2800, status:"warn", emoji:"⚡" },
-      { id:2, name:"Bruno Salinas", pos:"Defensa", kcal:2100, goal:2400, status:"ok", emoji:"🛡️" },
-      { id:3, name:"Mateo Fuentes", pos:"Delantero", kcal:400, goal:3000, status:"bad", emoji:"🔥" },
-      { id:4, name:"Ignacio Vera", pos:"Arco", kcal:1900, goal:2600, status:"ok", emoji:"🧤" },
-    ];
-    const QUICK_FOODS = [
-      { emoji:"🍌", name:"Plátano", kcal:90, p:1, c:23, g:0 },
-      { emoji:"🥚", name:"Huevo duro", kcal:70, p:6, c:0, g:5 },
-      { emoji:"🍞", name:"Pan marraqueta", kcal:120, p:4, c:23, g:1 },
-      { emoji:"🥛", name:"Leche (200ml)", kcal:100, p:7, c:10, g:3 },
-      { emoji:"🍚", name:"Arroz c/ pollo", kcal:420, p:32, c:48, g:8 },
-      { emoji:"🫘", name:"Lentejas (plato)", kcal:230, p:18, c:40, g:1 },
-    ];
+<div id="app">
+  <div class="strip"></div>
+  <nav class="nav">
+    <div class="logo">Nutri<span>Deportivo</span></div>
+    <div class="rtoggle">
+      <button class="rbtn on" id="btn-player" onclick="setRole('player')">Jugador</button>
+      <button class="rbtn" id="btn-coach" onclick="setRole('coach')">Entrenador</button>
+    </div>
+  </nav>
+  <div class="screen" id="screen"></div>
+  <nav class="tabbar" id="tabbar"></nav>
+</div>
 
-    function PBar({ label, val, max }) {
-      const pct = Math.min((val/max)*100, 100);
-      const cls = pct>90 ? "red" : pct>60 ? "amber" : "";
-      return (
-        <div className="pbar-wrap">
-          <div className="pbar-label"><span>{label}</span><span>{val} / {max}</span></div>
-          <div className="pbar"><div className={"pbar-fill "+cls} style={{width:pct+"%"}} /></div>
-        </div>
-      );
-    }
+<script>
+const PLAYER={name:"Tomás Herrera",age:16,weight:62,height:172,pos:"Volante",kcalGoal:2800,protGoal:140};
+const LOG=[
+  {id:1,e:"🍳",n:"Huevos revueltos (3)",k:210,p:18,c:2,g:14,t:"07:30"},
+  {id:2,e:"🍞",n:"Pan marraqueta (2)",k:240,p:8,c:46,g:3,t:"07:30"},
+  {id:3,e:"🥛",n:"Leche (200ml)",k:100,p:7,c:10,g:3,t:"10:15"},
+  {id:4,e:"🍚",n:"Arroz c/ pollo",k:420,p:32,c:48,g:8,t:"13:00"},
+];
+const TEAM=[
+  {id:1,n:"Tomás Herrera",pos:"Volante",k:970,goal:2800,s:"warn",e:"⚡"},
+  {id:2,n:"Bruno Salinas",pos:"Defensa",k:2100,goal:2400,s:"ok",e:"🛡️"},
+  {id:3,n:"Mateo Fuentes",pos:"Delantero",k:400,goal:3000,s:"bad",e:"🔥"},
+  {id:4,n:"Ignacio Vera",pos:"Arco",k:1900,goal:2600,s:"ok",e:"🧤"},
+];
+const FOODS=[
+  {e:"🍌",n:"Plátano",k:90,p:1,c:23,g:0},
+  {e:"🥚",n:"Huevo duro",k:70,p:6,c:0,g:5},
+  {e:"🍞",n:"Pan marraqueta",k:120,p:4,c:23,g:1},
+  {e:"🥛",n:"Leche (200ml)",k:100,p:7,c:10,g:3},
+  {e:"🍚",n:"Arroz c/ pollo",k:420,p:32,c:48,g:8},
+  {e:"🫘",n:"Lentejas (plato)",k:230,p:18,c:40,g:1},
+];
 
-    async function askClaude(prompt) {
-      try {
-        const res = await fetch("https://api.anthropic.com/v1/messages", {
-          method:"POST",
-          headers:{"Content-Type":"application/json","x-api-key":window.ANTHROPIC_KEY||"","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
-          body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:800,messages:[{role:"user",content:prompt}]}),
-        });
-        const d = await res.json();
-        return d.content?.map(b=>b.text||"").join("\n") || "Sin respuesta.";
-      } catch(e) { return "Cargá la API key para activar la IA."; }
-    }
+let role="player",tab="home",foodLog=[...LOG],selFood=null;
 
-    function PlayerHome({ log, onAdd }) {
-      const kcal = log.reduce((s,f)=>s+f.kcal,0);
-      const prot = log.reduce((s,f)=>s+f.p,0);
-      const pct = Math.round((kcal/PLAYER.kcalGoal)*100);
-      return (
-        <div className="screen">
-          <div className="card">
-            <div className="card-title">Hoy · {new Date().toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"short"})}</div>
-            <div className="hero-stat">
-              <div className="hero-num">{pct}<span style={{fontSize:24}}>%</span></div>
-              <div className="hero-label"><strong>{kcal} kcal consumidas</strong>Meta: {PLAYER.kcalGoal} kcal · Masa muscular</div>
-            </div>
-            <PBar label="Proteína (g)" val={prot} max={PLAYER.proteinGoal} />
-            <PBar label="Calorías" val={kcal} max={PLAYER.kcalGoal} />
-          </div>
-          {pct<50 && <div className="alert"><span style={{fontSize:18}}>⚠️</span><div className="alert-text">Llevás menos de la mitad de tus calorías. Tu entrenador será notificado.</div></div>}
-          <div className="card">
-            <div className="card-title">Registro de comidas</div>
-            {log.map(f=>(
-              <div className="food-row" key={f.id}>
-                <div className="food-emoji">{f.emoji}</div>
-                <div className="food-info"><div className="food-name">{f.name}</div><div className="food-macro">P {f.p}g · C {f.c}g · G {f.g}g · {f.time}</div></div>
-                <div className="food-kcal">{f.kcal}</div>
-              </div>
-            ))}
-            <div style={{marginTop:12}}><button className="add-btn" onClick={onAdd}>＋ Agregar comida</button></div>
-          </div>
-        </div>
-      );
-    }
+function pct(v,m){return Math.min(Math.round(v/m*100),100);}
+function pbar(label,val,max){
+  const p=pct(val,max);
+  const cls=p>90?"rd":p>60?"am":"";
+  return '<div class="pb-wrap"><div class="pb-labels"><span>'+label+'</span><span>'+val+' / '+max+'</span></div><div class="pb"><div class="pb-fill '+cls+'" style="width:'+p+'%"></div></div></div>';
+}
 
-    function PlayerPlan() {
-      const [plan,setPlan] = useState(null);
-      const [loading,setLoading] = useState(false);
-      async function generate() {
-        setLoading(true); setPlan(null);
-        const r = await askClaude("Eres nutricionista deportivo para jugadores jóvenes de escasos recursos en Latinoamérica. Jugador: Tomás, 16 años, 62kg, 172cm, volante de fútbol, objetivo masa muscular, meta 2800 kcal y 140g proteína. Generá un plan de 5 comidas para hoy usando solo alimentos económicos: huevo, leche, arroz, lentejas, pan, plátano, avena, pollo, atún, papa. Para cada comida: nombre, ingredientes con gramos, calorías y proteína. Sin markdown, texto directo y amigable.");
-        setPlan(r); setLoading(false);
-      }
-      return (
-        <div className="screen">
-          <div className="card">
-            <div className="card-title">Plan de comidas · IA</div>
-            <p style={{fontSize:13,color:"#D4C9A8",lineHeight:1.6,marginBottom:12}}>Generado según tu peso, posición y objetivo. Solo alimentos económicos.</p>
-            <button className="add-btn" onClick={generate} disabled={loading}>{loading?"Generando…":"🤖 Generar mi plan de hoy"}</button>
-          </div>
-          {loading && <div className="ai-box loading">Preparando tu plan…</div>}
-          {plan && <div className="ai-box">{plan}</div>}
-          {!plan&&!loading&&(
-            <div className="card">
-              <div className="card-title">Qué considero</div>
-              {[["⚖️","Peso y talla actuales"],["🎯","Objetivo: masa muscular"],["🏃","Posición: Volante"],["💰","Alimentos económicos"]].map(([i,t])=>(
-                <div key={t} style={{display:"flex",gap:10,alignItems:"center",fontSize:13,color:"#D4C9A8",padding:"4px 0"}}><span style={{fontSize:18}}>{i}</span>{t}</div>
-              ))}
-            </div>
-          )}
-        </div>
-      );
-    }
+function setRole(r){
+  role=r;tab="home";
+  document.getElementById("btn-player").className="rbtn"+(r==="player"?" on":"");
+  document.getElementById("btn-coach").className="rbtn"+(r==="coach"?" on":"");
+  render();
+}
 
-    function CoachView() {
-      const [sel,setSel] = useState(null);
-      const [advice,setAdvice] = useState(null);
-      const [loading,setLoading] = useState(false);
-      async function getAdvice(p) {
-        setSel(p); setAdvice(null); setLoading(true);
-        const pct = Math.round((p.kcal/p.goal)*100);
-        const r = await askClaude("Entrenador deportivo. Jugador: "+p.name+", "+p.pos+". Lleva "+p.kcal+" kcal de "+p.goal+" ("+pct+"%). Redactá en 3 líneas: qué problema hay, qué consecuencia tiene en el rendimiento y UNA acción concreta y económica para hoy.");
-        setAdvice(r); setLoading(false);
-      }
-      return (
-        <div className="screen">
-          <div className="card">
-            <div className="card-title">Estado del equipo · Hoy</div>
-            {TEAM.map(p=>{
-              const pct=Math.round((p.kcal/p.goal)*100);
-              return (
-                <div className="player-row" key={p.id} onClick={()=>getAdvice(p)}>
-                  <div className="player-avatar">{p.emoji}</div>
-                  <div style={{flex:1}}>
-                    <div className="player-name">{p.name}</div>
-                    <div className="player-sub">{p.pos} · {pct}% meta calórica</div>
-                    <div className="pbar" style={{marginTop:5}}><div className={"pbar-fill "+(p.status==="ok"?"":p.status==="warn"?"amber":"red")} style={{width:Math.min(pct,100)+"%"}} /></div>
-                  </div>
-                  <div className={"status-dot "+p.status} />
-                </div>
-              );
-            })}
-          </div>
-          {(loading||advice)&&(
-            <div className="card">
-              <div className="card-title">Alerta IA · {sel&&sel.name}</div>
-              {loading?<div className="ai-box loading">Analizando…</div>:<div className="ai-box">{advice}</div>}
-            </div>
-          )}
-        </div>
-      );
-    }
+function render(){
+  renderTabbar();
+  if(role==="player"&&tab==="home")renderHome();
+  else if(role==="player"&&tab==="plan")renderPlan();
+  else if(role==="coach")renderCoach();
+}
 
-    function AddFoodModal({ onClose, onAdd }) {
-      const [sel,setSel]=useState(null);
-      const [custom,setCustom]=useState("");
-      const [aiLoading,setAiLoading]=useState(false);
-      const [aiResult,setAiResult]=useState(null);
+function renderTabbar(){
+  const tabs=role==="player"
+    ?[{id:"home",i:"📋",l:"Registro"},{id:"plan",i:"🤖",l:"Mi Plan"}]
+    :[{id:"home",i:"👥",l:"Equipo"}];
+  document.getElementById("tabbar").innerHTML=tabs.map(function(t){
+    return '<button class="tab'+(tab===t.id?" on":"")+'" onclick="setTab(\''+t.id+'\')"><span class="ticon">'+t.i+'</span>'+t.l+'</button>';
+  }).join("");
+}
+
+function setTab(t){tab=t;render();}
+
+function renderHome(){
+  const kcal=foodLog.reduce(function(s,f){return s+f.k;},0);
+  const prot=foodLog.reduce(function(s,f){return s+f.p;},0);
+  const p=pct(kcal,PLAYER.kcalGoal);
+  const fecha=new Date().toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"short"});
+  let html='<div class="card"><div class="ctitle">Hoy · '+fecha+'</div>';
+  html+='<div class="hstat"><div class="hnum">'+p+'<span style="font-size:22px">%</span></div>';
+  html+='<div class="hlabel"><strong>'+kcal+' kcal consumidas</strong>Meta: '+PLAYER.kcalGoal+' kcal · Masa muscular</div></div>';
+  html+=pbar("Proteína (g)",prot,PLAYER.protGoal)+pbar("Calorías",kcal,PLAYER.kcalGoal)+'</div>';
+  if(p<50)html+='<div class="alert"><span style="font-size:18px">⚠️</span><div class="alert-t">Llevás menos de la mitad de tus calorías. Tu entrenador será notificado.</div></div>';
+  html+='<div class="card"><div class="ctitle">Registro de comidas</div>';
+  foodLog.forEach(function(f){
+    html+='<div class="frow"><div class="fem">'+f.e+'</div><div class="fin"><div class="fn">'+f.n+'</div><div class="fm">P '+f.p+'g · C '+f.c+'g · G '+f.g+'g · '+f.t+'</div></div><div class="fk">'+f.k+'</div></div>';
+  });
+  html+='<button class="btn" onclick="openModal()">＋ Agregar comida</button></div>';
+  document.getElementById("screen").innerHTML=html;
+}
+
+function renderPlan(){
+  document.getElementById("screen").innerHTML='<div class="card"><div class="ctitle">Plan de comidas · IA</div><p class="tip">Generado según tu peso, posición y objetivo. Solo alimentos económicos.</p><button class="btn" id="plan-btn" onclick="generatePlan()">🤖 Generar mi plan de hoy</button></div><div id="plan-result"></div><div class="card" id="plan-info"><div class="ctitle">Qué considero</div><div class="irow"><span style="font-size:18px">⚖️</span>Peso y talla actuales</div><div class="irow"><span style="font-size:18px">🎯</span>Objetivo: masa muscular</div><div class="irow"><span style="font-size:18px">🏃</span>Posición: Volante</div><div class="irow"><span style="font-size:18px">💰</span>Alimentos económicos</div></div>';
+}
+
+async function generatePlan(){
+  document.getElementById("plan-btn").disabled=true;
+  document.getElementById("plan-btn").textContent="Generando…";
+  var info=document.getElementById("plan-info");
+  if(info)info.style.display="none";
+  document.getElementById("plan-result").innerHTML='<div class="ai-box load">El nutricionista virtual está preparando tu plan…</div>';
+  var txt=await askClaude("Eres nutricionista deportivo para jugadores jóvenes de escasos recursos en Latinoamérica. Jugador: Tomás, 16 años, 62kg, 172cm, volante de fútbol, objetivo masa muscular, meta 2800 kcal y 140g proteína. Generá un plan de 5 comidas para hoy usando SOLO alimentos económicos: huevo, leche, arroz, lentejas, pan, plátano, avena, pollo, atún, papa. Para cada comida: nombre, ingredientes con gramos, calorías y proteína. Sin markdown, texto directo y amigable.");
+  document.getElementById("plan-result").innerHTML='<div class="ai-box">'+txt+'</div>';
+  var btn=document.getElementById("plan-btn");
+  if(btn){btn.disabled=false;btn.textContent="🤖 Generar mi plan de hoy";}
+}
+
+function renderCoach(){
+  var html='<div class="card"><div class="ctitle">Estado del equipo · Hoy</div>';
+  TEAM.forEach(function(p){
+    var pc=pct(p.k,p.goal);
+    var fc=p.s==="ok"?"":p.s==="warn"?"am":"rd";
+    html+='<div class="prow" onclick="getAdvice('+p.id+')"><div class="pav">'+p.e+'</div><div style="flex:1"><div class="pn">'+p.n+'</div><div class="ps">'+p.pos+' · '+pc+'% meta calórica</div><div class="pb" style="margin-top:5px"><div class="pb-fill '+fc+'" style="width:'+pc+'%"></div></div></div><div class="dot '+p.s+'"></div></div>';
+  });
+  html+='</div><div id="advice-box"></div>';
+  html+='<div class="card"><div class="ctitle">Leyenda</div>';
+  html+='<div class="irow"><div style="width:10px;height:10px;border-radius:50%;background:#A8E63D;flex-shrink:0"></div>En meta o cerca (&gt;80%)</div>';
+  html+='<div class="irow"><div style="width:10px;height:10px;border-radius:50%;background:#F5A623;flex-shrink:0"></div>Por debajo (50–80%)</div>';
+  html+='<div class="irow"><div style="width:10px;height:10px;border-radius:50%;background:#E84040;flex-shrink:0"></div>Crítico (&lt;50%)</div></div>';
+  document.getElementById("screen").innerHTML=html;
+}
+
+async function getAdvice(id){
+  var p=TEAM.find(function(x){return x.id===id;});
+  var pc=pct(p.k,p.goal);
+  document.getElementById("advice-box").innerHTML='<div class="card"><div class="ctitle">Alerta IA · '+p.n+'</div><div class="ai-box load">Analizando…</div></div>';
+  var txt=await askClaude("Sos asistente de un entrenador deportivo. Jugador: "+p.n+", "+p.pos+". Hoy lleva "+p.k+" kcal de "+p.goal+" ("+pc+"%). Redactá en 3 líneas: qué problema hay, qué consecuencia tiene en el rendimiento y UNA acción concreta y económica para hoy.");
+  document.getElementById("advice-box").innerHTML='<div class="card"><div class="ctitle">Alerta IA · '+p.n+'</div><div class="ai-box">'+txt+'</div></div>';
+}
+
+function openModal(){
+  selFood=null;
+  var d=document.createElement("div");
+  d.className="overlay";d.id="modal-overlay";
+  d.onclick=function(e){if(e.target===d)closeModal();};
+  var chips=FOODS.map(function(f,i){return '<div class="chip" id="chip-'+i+'" onclick="selChip('+i+')">'+f.e+' '+f.n+'</div>';}).join("");
+  d.innerHTML='<div class="modal"><div class="mhandle"></div><div class="mtitle">¿Qué comiste?</div><div class="shdr">Selección rápida</div><div class="chips">'+chips+'</div><div id="chip-preview"></div><div class="shdr">O describí lo que comiste</div><div class="row"><input class="finput" id="custom-input" placeholder="Ej: cazuela con papa y pollo"/><button class="sbtn" onclick="analyzeCustom()">Analizar</button></div><div id="custom-preview"></div></div>';
+  document.body.appendChild(d);
+}
+
+function closeModal(){
+  var d=document.getElementById("modal-overlay");
+  if(d)d.remove();
+}
+
+function selChip(i){
+  FOODS.forEach(function(_,j){
+    var c=document.getElementById("chip-"+j);
+    if(c)c.className="chip"+(j===i?" on":"");
+  });
+  selFood=FOODS[i];
+  var f=selFood;
+  document.getElementById("chip-preview").innerHTML='<div class="ai-box" style="margin-bottom:10px">'+f.e+' '+f.n+' — '+f.k+' kcal · P '+f.p+'g · C '+f.c+'g · G '+f.g+'g</div><button class="btn" style="margin-top:0" onclick="addFood('+i+',true)">Agregar esta comida</button>';
+}
+
+function addFood(idx,fromChip){
+  var f=fromChip?FOODS[idx]:selFood;
+  if(!f)return;
+  var now=new Date().toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"});
+  foodLog.push({id:Date.now(),e:f.e,n:f.n,k:f.k,p:f.p,c:f.c,g:f.g,t:now});
+  closeModal();render();
+}
+
+async function analyzeCustom(){
+  var v=document.getElementById("custom-input").value.trim();
+  if(!v)return;
+  document.getElementById("custom-preview").innerHTML='<div class="ai-box load" style="margin-top:10px">Analizando…</div>';
+  var r=await askClaude('Nutricionista. El usuario comió: "'+v+'". Respondé SOLO con JSON válido sin markdown: {"e":"🍽️","n":"nombre corto","k":0,"p":0,"c":0,"g":0}. k=calorías, p=proteínas, c=carbohidratos, g=grasas en gramos. Valores realistas.');
+  var food;
+  try{var clean=r.replace(/```json|```/g,"").trim();food=JSON.parse(clean);}
+  catch{food={e:"🍽️",n:v,k:200,p:10,c:25,g:5};}
+  window._lastFood=food;
+  document.getElementById("custom-preview").innerHTML='<div class="ai-box" style="margin-top:10px">'+food.e+' '+food.n+' — '+food.k+' kcal · P '+food.p+'g</div><button class="btn" style="margin-top:8px" onclick="addLastFood()">Agregar esta comida</button>';
+}
+
+function addLastFood(){
+  var f=window._lastFood;
+  if(!f)return;
+  var now=new Date().toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"});
+  foodLog.push({id:Date.now(),e:f.e,n:f.n,k:f.k,p:f.p,c:f.c,g:f.g,t:now});
+  closeModal();render();
+}
+
+async function askClaude(prompt){
+  var key=window.ANTHROPIC_KEY||"";
+  if(!key)return "Para activar la IA cargá tu API key de Anthropic en Vercel.";
+  try{
+    var r=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","x-api-key":key,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+      body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:800,messages:[{role:"user",content:prompt}]})
+    });
+    var d=await r.json();
+    return d.content&&d.content.map(function(b){return b.text||"";}).join("\n")||"Sin respuesta.";
+  }catch(e){return "Error al conectar con la IA.";}
+}
+
+render();
+</script>
+</body>
+</html>

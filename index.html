@@ -9,34 +9,22 @@
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Inter',sans-serif;background:#0D1F0F;color:#F5F0E8;min-height:100vh}
     #app{max-width:430px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
-
-    /* Strip */
     .strip{height:4px;background:repeating-linear-gradient(90deg,#A8E63D 0 60px,transparent 60px 80px)}
-
-    /* Nav */
     .nav{background:#1A3A1C;border-bottom:1px solid #2B5E2E;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
     .logo{font-size:18px;font-weight:900;color:#A8E63D;letter-spacing:-0.5px}
     .logo span{color:#F5F0E8}
     .rtoggle{display:flex;background:#0D1F0F;border-radius:8px;overflow:hidden;border:1px solid #2B5E2E}
     .rbtn{flex:1;padding:7px 12px;font-size:12px;font-weight:700;border:none;cursor:pointer;background:transparent;color:#D4C9A8;font-family:inherit;white-space:nowrap}
     .rbtn.on{background:#A8E63D;color:#0D1F0F}
-
-    /* Screen */
     .screen{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px}
-
-    /* Cards */
     .card{background:#1A3A1C;border:1px solid #2B5E2E;border-radius:12px;padding:16px}
     .ctitle{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#6B9C22;margin-bottom:10px}
-
-    /* Progress bars */
     .pb-wrap{margin-top:8px}
     .pb-labels{display:flex;justify-content:space-between;font-size:11px;color:#D4C9A8;margin-bottom:4px}
     .pb{height:8px;background:#0D1F0F;border-radius:4px;overflow:hidden}
     .pb-fill{height:100%;background:#A8E63D;border-radius:4px;transition:width .5s}
     .pb-fill.am{background:#F5A623}
     .pb-fill.rd{background:#E84040}
-
-    /* Food rows */
     .frow{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #2B5E2E}
     .frow:last-child{border-bottom:none}
     .fem{font-size:24px;flex-shrink:0}
@@ -44,21 +32,12 @@
     .fn{font-size:14px;font-weight:600;color:#F5F0E8}
     .fm{font-size:12px;color:#D4C9A8;margin-top:2px}
     .fk{font-size:15px;font-weight:700;color:#A8E63D;flex-shrink:0}
-
-    /* Buttons */
     .btn{display:flex;align-items:center;justify-content:center;width:100%;padding:13px;background:#A8E63D;color:#0D1F0F;font-size:14px;font-weight:700;border:none;border-radius:10px;cursor:pointer;font-family:inherit;margin-top:12px}
     .btn:disabled{opacity:.6;cursor:not-allowed}
-    .btn-sm{padding:8px 14px;width:auto;margin-top:0;font-size:12px}
-
-    /* Alert */
     .alert{display:flex;gap:10px;background:#2A1A0A;border:1px solid #F5A623;border-radius:10px;padding:12px}
     .alert-t{font-size:13px;color:#F5A623;line-height:1.5}
-
-    /* AI box */
     .ai-box{background:#0D1F0F;border:1px solid #2B5E2E;border-left:3px solid #A8E63D;border-radius:8px;padding:14px;font-size:13px;line-height:1.7;color:#F5F0E8;white-space:pre-wrap}
     .ai-box.load{color:#6B9C22;font-style:italic}
-
-    /* Team rows */
     .prow{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #2B5E2E;cursor:pointer}
     .prow:last-child{border-bottom:none}
     .pav{width:40px;height:40px;border-radius:50%;background:#0D1F0F;display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid #2B5E2E;flex-shrink:0}
@@ -66,16 +45,12 @@
     .ps{font-size:12px;color:#D4C9A8}
     .dot{width:8px;height:8px;border-radius:50%;margin-left:auto;flex-shrink:0}
     .dot.ok{background:#A8E63D}.dot.warn{background:#F5A623}.dot.bad{background:#E84040}
-
-    /* Tabbar */
     .tabbar{display:flex;background:#1A3A1C;border-top:1px solid #2B5E2E}
     .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 4px;font-size:10px;font-weight:700;text-transform:uppercase;color:#D4C9A8;cursor:pointer;border:none;background:none;font-family:inherit}
     .tab.on{color:#A8E63D}
     .ticon{font-size:20px}
-
-    /* Modal */
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:flex-end;justify-content:center;z-index:100}
-    .modal{background:#1A3A1C;border-radius:16px 16px 0 0;padding:20px 16px;width:100%;max-width:430px;border-top:1px solid #2B5E2E;max-height:82vh;overflow-y:auto}
+    .modal{background:#1A3A1C;border-radius:16px 16px 0 0;padding:20px 16px;width:100%;max-width:430px;border-top:1px solid #2B5E2E;max-height:85vh;overflow-y:auto}
     .mhandle{width:36px;height:4px;background:#2B5E2E;border-radius:2px;margin:0 auto 16px}
     .mtitle{font-size:16px;font-weight:700;color:#F5F0E8;margin-bottom:14px}
     .shdr{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#6B9C22;padding:4px 0 8px}
@@ -88,25 +63,19 @@
     .sbtn{padding:10px 14px;background:#A8E63D;color:#0D1F0F;font-size:12px;font-weight:700;border:none;border-radius:8px;cursor:pointer;font-family:inherit;white-space:nowrap}
     .tip{font-size:12px;color:#D4C9A8;line-height:1.6;margin-bottom:12px}
     .irow{display:flex;gap:10px;align-items:center;padding:5px 0;font-size:13px;color:#D4C9A8}
-
-    /* ── STATS STYLES ── */
     .hero-stat{display:flex;gap:12px;align-items:center;margin-bottom:4px}
     .hnum{font-size:48px;font-weight:900;color:#A8E63D;line-height:1;letter-spacing:-2px}
     .hlabel{font-size:13px;color:#D4C9A8;line-height:1.5}
     .hlabel strong{display:block;font-size:15px;color:#F5F0E8}
-
-    /* Player card ficha */
     .player-card{background:#0D1F0F;border-radius:12px;padding:14px;border:1px solid #2B5E2E;margin-bottom:10px}
     .pc-header{display:flex;gap:12px;align-items:center;margin-bottom:12px}
     .pc-avatar{width:52px;height:52px;border-radius:50%;background:#1A3A1C;display:flex;align-items:center;justify-content:center;font-size:24px;border:2px solid #A8E63D;flex-shrink:0}
     .pc-name{font-size:16px;font-weight:700;color:#F5F0E8}
     .pc-pos{font-size:12px;color:#6B9C22;font-weight:600;text-transform:uppercase;letter-spacing:1px}
     .pc-data{font-size:11px;color:#D4C9A8;margin-top:2px}
-    .per-badge{margin-left:auto;text-align:center}
+    .per-badge{margin-left:auto;text-align:center;flex-shrink:0}
     .per-num{font-size:28px;font-weight:900;color:#A8E63D;line-height:1}
     .per-lbl{font-size:9px;color:#6B9C22;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-
-    /* Stats grid */
     .stats-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
     .stat-box{background:#1A3A1C;border-radius:8px;padding:8px;text-align:center;border:1px solid #2B5E2E}
     .stat-val{font-size:18px;font-weight:700;color:#F5F0E8}
@@ -114,22 +83,15 @@
     .stat-val.amber{color:#F5A623}
     .stat-val.red{color:#E84040}
     .stat-lbl{font-size:9px;color:#6B9C22;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px}
-
-    /* Advanced stats */
     .adv-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
     .adv-box{background:#1A3A1C;border-radius:8px;padding:10px;border:1px solid #2B5E2E}
     .adv-val{font-size:20px;font-weight:700;color:#F5F0E8}
     .adv-lbl{font-size:10px;color:#6B9C22;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:2px}
     .adv-sub{font-size:10px;color:#D4C9A8;margin-top:2px}
-
-    /* Attendance */
     .att-dots{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
     .att-dot{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
     .att-dot.p{background:#A8E63D;color:#0D1F0F}
     .att-dot.a{background:#2B5E2E;color:#6B9C22}
-    .att-dot.j{background:#F5A623;color:#0D1F0F}
-
-    /* Objectives */
     .obj-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #1A3A1C}
     .obj-row:last-child{border-bottom:none}
     .obj-icon{font-size:16px;flex-shrink:0}
@@ -138,31 +100,55 @@
     .obj-type{font-size:10px;color:#6B9C22;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
     .obj-bar{height:6px;background:#0D1F0F;border-radius:3px;overflow:hidden;margin-top:4px}
     .obj-fill{height:100%;border-radius:3px;transition:width .5s}
-
-    /* Coach dashboard summary */
     .coach-summary{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
     .summary-box{background:#0D1F0F;border-radius:10px;padding:12px;border:1px solid #2B5E2E;text-align:center}
     .summary-num{font-size:26px;font-weight:900;color:#A8E63D;line-height:1}
     .summary-lbl{font-size:10px;color:#6B9C22;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:4px}
     .summary-sub{font-size:11px;color:#D4C9A8;margin-top:2px}
-
-    /* Tabs inside screen */
-    .subtabs{display:flex;gap:0;background:#0D1F0F;border-radius:8px;overflow:hidden;border:1px solid #2B5E2E;margin-bottom:14px}
-    .stab{flex:1;padding:8px;font-size:11px;font-weight:700;border:none;cursor:pointer;background:transparent;color:#D4C9A8;font-family:inherit;text-align:center}
-    .stab.on{background:#A8E63D;color:#0D1F0F}
-
-    /* Trend indicators */
-    .trend{font-size:11px;font-weight:700}
-    .trend.up{color:#A8E63D}
-    .trend.dn{color:#E84040}
-    .trend.eq{color:#D4C9A8}
-
-    /* AI insight box */
     .insight{background:#0D1F0F;border:1px solid #2B5E2E;border-left:3px solid #A8E63D;border-radius:8px;padding:12px;margin-top:10px}
     .insight-title{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#A8E63D;margin-bottom:6px}
     .insight-text{font-size:12px;color:#D4C9A8;line-height:1.6}
 
-    /* Scrollbar */
+    /* ── PARTIDO CARGA ── */
+    .match-header{background:#0D1F0F;border-radius:10px;padding:12px;border:1px solid #2B5E2E;margin-bottom:14px;text-align:center}
+    .match-vs{font-size:13px;color:#D4C9A8;margin-bottom:4px}
+    .match-rival{font-size:18px;font-weight:700;color:#F5F0E8}
+    .match-date{font-size:11px;color:#6B9C22;margin-top:2px}
+
+    /* Stat counter buttons */
+    .player-stat-card{background:#0D1F0F;border-radius:12px;padding:12px;border:1px solid #2B5E2E;margin-bottom:10px}
+    .psc-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #2B5E2E}
+    .psc-name{font-size:15px;font-weight:700;color:#F5F0E8}
+    .psc-pos{font-size:11px;color:#6B9C22}
+    .stat-counters{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .counter-box{background:#1A3A1C;border-radius:8px;padding:8px}
+    .counter-lbl{font-size:10px;color:#6B9C22;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+    .counter-row{display:flex;align-items:center;gap:6px}
+    .counter-val{font-size:22px;font-weight:900;color:#F5F0E8;flex:1;text-align:center}
+    .cbtn{width:32px;height:32px;border-radius:8px;border:none;cursor:pointer;font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .cbtn.plus{background:#A8E63D;color:#0D1F0F}
+    .cbtn.minus{background:#2B5E2E;color:#D4C9A8}
+    .cbtn:active{opacity:.7}
+
+    /* Tiros especiales */
+    .shot-box{background:#1A3A1C;border-radius:8px;padding:8px;grid-column:1/-1}
+    .shot-row{display:flex;align-items:center;gap:8px;margin-top:4px}
+    .shot-lbl{font-size:11px;color:#D4C9A8;width:80px;flex-shrink:0}
+    .shot-val{font-size:16px;font-weight:700;color:#F5F0E8;width:30px;text-align:center}
+
+    /* Selector jugador partido */
+    .player-selector{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px}
+    .player-selector::-webkit-scrollbar{height:2px}
+    .player-selector::-webkit-scrollbar-thumb{background:#2B5E2E}
+    .psel-btn{padding:6px 12px;border-radius:20px;border:1px solid #2B5E2E;background:#0D1F0F;color:#D4C9A8;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;flex-shrink:0}
+    .psel-btn.on{border-color:#A8E63D;background:#A8E63D;color:#0D1F0F}
+
+    /* Team total bar */
+    .team-total{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+    .tt-box{background:#0D1F0F;border-radius:8px;padding:8px;text-align:center;border:1px solid #2B5E2E}
+    .tt-val{font-size:20px;font-weight:900;color:#A8E63D}
+    .tt-lbl{font-size:9px;color:#6B9C22;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
+
     ::-webkit-scrollbar{width:3px}
     ::-webkit-scrollbar-thumb{background:#2B5E2E;border-radius:2px}
   </style>
@@ -183,8 +169,8 @@
 
 <script>
 // ── DATA ──────────────────────────────────────────────────────
-const PLAYER = {name:"Tomás Herrera",age:16,weight:62,height:172,pos:"Volante / Base",kcalGoal:2800,protGoal:140,number:5};
-const LOG = [
+const PLAYER_ME = {name:"Tomás Herrera",age:16,weight:62,height:172,pos:"Base",kcalGoal:2800,protGoal:140,number:5};
+const FOOD_LOG_INIT = [
   {id:1,e:"🍳",n:"Huevos revueltos (3)",k:210,p:18,c:2,g:14,t:"07:30"},
   {id:2,e:"🍞",n:"Pan marraqueta (2)",k:240,p:8,c:46,g:3,t:"07:30"},
   {id:3,e:"🥛",n:"Leche (200ml)",k:100,p:7,c:10,g:3,t:"10:15"},
@@ -199,97 +185,112 @@ const QUICK_FOODS = [
   {e:"🫘",n:"Lentejas (plato)",k:230,p:18,c:40,g:1},
 ];
 
-// Stats data por jugador (básicas + avanzadas)
+// Plantilla del entrenador — mismos campos que su planilla
 const TEAM = [
-  {id:1,n:"Tomás Herrera",pos:"Base",e:"⚡",kcal:970,goal:2800,s:"warn",
-   stats:{pts:14,reb:4,ast:6,per:18.2,reb_o:1,reb_d:3,to:3,stl:2,blk:0,fg_a:12,fg_m:5,fg3_a:5,fg3_m:2,ft_a:4,ft_m:3,min:28},
+  {id:1,n:"Tomás Herrera",pos:"Base",e:"⚡",num:5,kcal:970,goal:2800,s:"warn",
+   stats:{pts:14,reb_o:1,reb_d:3,ast:6,tap:0,rob:2,per:3,tl_m:3,tl_a:4,tc_m:5,tc_a:12,t3_m:2,t3_a:5,fal:2,min:28},
    att:[1,1,1,0,1,1,1,0,1,1,1,1,0,1,1],
    objs:[
      {icon:"🎯",name:"Mejorar % tiro de 3",type:"Técnico",pct:45,color:"#F5A623"},
      {icon:"💪",name:"Ganar 2kg masa muscular",type:"Físico",pct:30,color:"#A8E63D"},
      {icon:"🧠",name:"Liderazgo en cancha",type:"Actitudinal",pct:70,color:"#00C9A7"},
    ]},
-  {id:2,n:"Bruno Salinas",pos:"Alero",e:"🛡️",kcal:2100,goal:2400,s:"ok",
-   stats:{pts:8,reb:9,ast:2,per:14.5,reb_o:3,reb_d:6,to:1,stl:1,blk:2,fg_a:8,fg_m:4,fg3_a:2,fg3_m:0,ft_a:2,ft_m:2,min:24},
+  {id:2,n:"Bruno Salinas",pos:"Alero",e:"🛡️",num:7,kcal:2100,goal:2400,s:"ok",
+   stats:{pts:8,reb_o:3,reb_d:6,ast:2,tap:2,rob:1,per:1,tl_m:2,tl_a:2,tc_m:4,tc_a:8,t3_m:0,t3_a:2,fal:3,min:24},
    att:[1,1,0,1,1,1,1,1,1,1,0,1,1,1,1],
    objs:[
      {icon:"🎯",name:"Rebote defensivo",type:"Técnico",pct:80,color:"#A8E63D"},
      {icon:"💪",name:"Resistencia aeróbica",type:"Físico",pct:55,color:"#A8E63D"},
    ]},
-  {id:3,n:"Mateo Fuentes",pos:"Escolta",e:"🔥",kcal:400,goal:3000,s:"bad",
-   stats:{pts:18,reb:3,ast:4,per:21.1,reb_o:1,reb_d:2,to:4,stl:3,blk:0,fg_a:16,fg_m:7,fg3_a:8,fg3_m:3,ft_a:6,ft_m:5,min:32},
+  {id:3,n:"Mateo Fuentes",pos:"Escolta",e:"🔥",num:10,kcal:400,goal:3000,s:"bad",
+   stats:{pts:18,reb_o:1,reb_d:2,ast:4,tap:0,rob:3,per:4,tl_m:5,tl_a:6,tc_m:7,tc_a:16,t3_m:3,t3_a:8,fal:4,min:32},
    att:[1,0,0,1,1,0,1,1,1,0,1,1,1,1,0],
    objs:[
-     {icon:"🍽️",name:"Cumplir meta calórica diaria",type:"Nutrición",pct:15,color:"#E84040"},
-     {icon:"🎯",name:"Reducir pérdidas de balón",type:"Técnico",pct:40,color:"#F5A623"},
+     {icon:"🍽️",name:"Cumplir meta calórica",type:"Nutrición",pct:15,color:"#E84040"},
+     {icon:"🎯",name:"Reducir pérdidas",type:"Técnico",pct:40,color:"#F5A623"},
    ]},
-  {id:4,n:"Ignacio Vera",pos:"Pivot",e:"🧤",kcal:1900,goal:2600,s:"ok",
-   stats:{pts:11,reb:7,ast:1,per:16.3,reb_o:2,reb_d:5,to:2,stl:0,blk:3,fg_a:10,fg_m:5,fg3_a:0,fg3_m:0,ft_a:4,ft_m:3,min:26},
+  {id:4,n:"Ignacio Vera",pos:"Pivot",e:"🧤",num:12,kcal:1900,goal:2600,s:"ok",
+   stats:{pts:11,reb_o:2,reb_d:5,ast:1,tap:3,rob:0,per:2,tl_m:3,tl_a:4,tc_m:5,tc_a:10,t3_m:0,t3_a:0,fal:3,min:26},
    att:[1,1,1,1,0,1,1,1,1,1,1,0,1,1,1],
    objs:[
      {icon:"💪",name:"Fuerza en piernas",type:"Físico",pct:60,color:"#A8E63D"},
-     {icon:"🎯",name:"Finalización en el poste",type:"Técnico",pct:50,color:"#F5A623"},
+     {icon:"🎯",name:"Finalización en poste",type:"Técnico",pct:50,color:"#F5A623"},
    ]},
 ];
 
+// Estado partido en vivo — basado en la planilla del entrenador
+var matchStats = {};
+TEAM.forEach(function(p){
+  matchStats[p.id] = {
+    tl_m:0,tl_a:0,   // tiros libres
+    tc_m:0,tc_a:0,   // tiros de campo
+    t3_m:0,t3_a:0,   // tiros de 3
+    reb_o:0,reb_d:0, // rebotes
+    ast:0,            // asistencias
+    tap:0,            // tapas
+    rob:0,            // robos
+    per:0,            // pérdidas
+    fal:0,            // faltas
+    entra:0,          // entradas
+    pts:0             // puntos (calculado)
+  };
+});
+
 // ── STATE ─────────────────────────────────────────────────────
-let role="player", tab="home", foodLog=[...LOG], playerSubtab="registro", coachSubtab="equipo", selectedPlayer=null;
+var role="player", tab="home", foodLog=[].concat(FOOD_LOG_INIT);
+var selectedPlayer=TEAM[0].id, matchPlayer=TEAM[0].id;
 
 // ── HELPERS ──────────────────────────────────────────────────
 function pct(v,m){return Math.min(Math.round(v/m*100),100);}
 function pb(label,val,max,cl){
-  const p=pct(val,max);
-  const c=cl||(p>90?"rd":p>60?"am":"");
+  var p=pct(val,max);
+  var c=cl||(p>90?"rd":p>60?"am":"");
   return '<div class="pb-wrap"><div class="pb-labels"><span>'+label+'</span><span>'+val+' / '+max+'</span></div><div class="pb"><div class="pb-fill '+c+'" style="width:'+p+'%"></div></div></div>';
 }
-function fgpct(m,a){return a>0?Math.round(m/a*100):0;}
-function tspct(p){
-  var fg=p.fg_m,fg3=p.fg3_m,ft=p.ft_m,fga=p.fg_a,fg3a=p.fg3_a,fta=p.ft_a;
-  if(fga+fg3a+fta===0)return 0;
-  return Math.round((fg+fg3+(0.44*ft))/(fga+fg3a+(0.44*fta))*100);
+function fgp(m,a){return a>0?Math.round(m/a*100):0;}
+function tsp(p){
+  var m=p.tc_m||0,a=p.tc_a||0,m3=p.t3_m||0,a3=p.t3_a||0,mf=p.tl_m||0,af=p.tl_a||0;
+  var denom=a+a3+(0.44*af);
+  if(denom===0)return 0;
+  return Math.round((m+m3+(0.44*mf))/denom*100);
 }
-function per(p){
-  // Simplified PER estimate
-  var pts=p.pts,reb=p.reb,ast=p.ast,stl=p.stl,blk=p.blk,to=p.to,min=p.min;
-  if(min===0)return 0;
-  return Math.round((pts*1+reb*1.2+ast*1.5+stl*2+blk*2-to*1.5)/min*36*10)/10;
+function calcPts(s){return (s.tc_m||0)*2+(s.t3_m||0)*1+(s.tl_m||0);}
+function calcPER(s){
+  var min=28;
+  return Math.round(((s.pts||0)*1+(s.reb_o||0)*1.2+(s.reb_d||0)*1+(s.ast||0)*1.5+(s.rob||0)*2+(s.tap||0)*2-(s.per||0)*1.5)/min*36*10)/10;
 }
-function attPct(arr){var p=arr.filter(function(x){return x===1;}).length;return Math.round(p/arr.length*100);}
+function attPct(arr){return Math.round(arr.filter(function(x){return x===1;}).length/arr.length*100);}
 
 // ── ROLE / TAB ────────────────────────────────────────────────
 function setRole(r){
-  role=r; tab="home"; playerSubtab="registro"; coachSubtab="equipo"; selectedPlayer=null;
+  role=r; tab="home";
   document.getElementById("btn-player").className="rbtn"+(r==="player"?" on":"");
   document.getElementById("btn-coach").className="rbtn"+(r==="coach"?" on":"");
   render();
 }
 function setTab(t){tab=t;render();}
-function setPlayerSubtab(t){playerSubtab=t;render();}
-function setCoachSubtab(t){coachSubtab=t;render();}
 
-// ── RENDER TABBAR ─────────────────────────────────────────────
 function renderTabbar(){
   var tabs=role==="player"
     ?[{id:"home",i:"📋",l:"Inicio"},{id:"stats",i:"📊",l:"Mis Stats"},{id:"plan",i:"🤖",l:"Mi Plan"}]
-    :[{id:"home",i:"👥",l:"Equipo"},{id:"player",i:"🏀",l:"Jugador"},{id:"summary",i:"📈",l:"Resumen"}];
+    :[{id:"home",i:"👥",l:"Equipo"},{id:"match",i:"🏀",l:"Partido"},{id:"summary",i:"📈",l:"Resumen"}];
   document.getElementById("tabbar").innerHTML=tabs.map(function(t){
     return '<button class="tab'+(tab===t.id?" on":"")+'" onclick="setTab(\''+t.id+'\')"><span class="ticon">'+t.i+'</span>'+t.l+'</button>';
   }).join("");
 }
 
 // ═══════════════════════════════════════════════════════════════
-// PLAYER SCREENS
+// PLAYER — INICIO
 // ═══════════════════════════════════════════════════════════════
-
 function renderHome(){
   var kcal=foodLog.reduce(function(s,f){return s+f.k;},0);
   var prot=foodLog.reduce(function(s,f){return s+f.p;},0);
-  var p=pct(kcal,PLAYER.kcalGoal);
+  var p=pct(kcal,PLAYER_ME.kcalGoal);
   var fecha=new Date().toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"short"});
   var html='<div class="card"><div class="ctitle">Hoy · '+fecha+'</div>';
   html+='<div class="hero-stat"><div class="hnum">'+p+'<span style="font-size:22px">%</span></div>';
-  html+='<div class="hlabel"><strong>'+kcal+' kcal consumidas</strong>Meta: '+PLAYER.kcalGoal+' kcal · Masa muscular</div></div>';
-  html+=pb("Proteína (g)",prot,PLAYER.protGoal)+pb("Calorías",kcal,PLAYER.kcalGoal)+'</div>';
+  html+='<div class="hlabel"><strong>'+kcal+' kcal consumidas</strong>Meta: '+PLAYER_ME.kcalGoal+' kcal · Masa muscular</div></div>';
+  html+=pb("Proteína (g)",prot,PLAYER_ME.protGoal)+pb("Calorías",kcal,PLAYER_ME.kcalGoal)+'</div>';
   if(p<50)html+='<div class="alert"><span style="font-size:18px;flex-shrink:0">⚠️</span><div class="alert-t">Llevás menos de la mitad de tus calorías. Tu entrenador será notificado.</div></div>';
   html+='<div class="card"><div class="ctitle">Registro de hoy</div>';
   foodLog.forEach(function(f){
@@ -299,275 +300,334 @@ function renderHome(){
   document.getElementById("screen").innerHTML=html;
 }
 
+// ═══════════════════════════════════════════════════════════════
+// PLAYER — MIS STATS
+// ═══════════════════════════════════════════════════════════════
 function renderPlayerStats(){
-  var p=TEAM[0]; // Tomás
-  var stats=p.stats;
-  var fg=fgpct(stats.fg_m,stats.fg_a);
-  var fg3=fgpct(stats.fg3_m,stats.fg3_a);
-  var ts=tspct(stats);
+  var p=TEAM[0];
+  var s=p.stats;
+  var fg=fgp(s.tc_m,s.tc_a);
+  var fg3=fgp(s.t3_m,s.t3_a);
+  var ts=tsp(s);
   var att=attPct(p.att);
-  var perVal=per(stats);
-  var astTo=stats.to>0?Math.round(stats.ast/stats.to*10)/10:stats.ast;
-
+  var perVal=calcPER(s);
+  var astTo=s.per>0?Math.round(s.ast/s.per*10)/10:s.ast;
   var html='';
-
-  // Ficha del jugador
-  html+='<div class="player-card">';
-  html+='<div class="pc-header">';
+  html+='<div class="player-card"><div class="pc-header">';
   html+='<div class="pc-avatar">'+p.e+'</div>';
-  html+='<div><div class="pc-name">'+p.n+'</div><div class="pc-pos">'+p.pos+'</div><div class="pc-data">#'+PLAYER.number+' · '+PLAYER.age+' años · '+PLAYER.weight+'kg · '+PLAYER.height+'cm</div></div>';
+  html+='<div><div class="pc-name">'+p.n+'</div><div class="pc-pos">'+p.pos+'</div><div class="pc-data">#'+p.num+' · '+PLAYER_ME.age+' años · '+PLAYER_ME.weight+'kg</div></div>';
   html+='<div class="per-badge"><div class="per-num">'+perVal+'</div><div class="per-lbl">PER</div></div>';
   html+='</div>';
-
-  // Stats básicas
   html+='<div class="stats-grid">';
-  html+='<div class="stat-box"><div class="stat-val">'+stats.pts+'</div><div class="stat-lbl">Puntos</div></div>';
-  html+='<div class="stat-box"><div class="stat-val">'+stats.reb+'</div><div class="stat-lbl">Rebotes</div></div>';
-  html+='<div class="stat-box"><div class="stat-val">'+stats.ast+'</div><div class="stat-lbl">Asistencias</div></div>';
-  html+='<div class="stat-box"><div class="stat-val amber">'+stats.to+'</div><div class="stat-lbl">Pérdidas</div></div>';
-  html+='<div class="stat-box"><div class="stat-val">'+stats.stl+'</div><div class="stat-lbl">Robos</div></div>';
-  html+='<div class="stat-box"><div class="stat-val">'+stats.min+'</div><div class="stat-lbl">Minutos</div></div>';
-  html+='</div>';
-  html+='</div>';
-
-  // Estadísticas avanzadas
+  html+='<div class="stat-box"><div class="stat-val">'+s.pts+'</div><div class="stat-lbl">Puntos</div></div>';
+  html+='<div class="stat-box"><div class="stat-val">'+(s.reb_o+s.reb_d)+'</div><div class="stat-lbl">Rebotes</div></div>';
+  html+='<div class="stat-box"><div class="stat-val">'+s.ast+'</div><div class="stat-lbl">Asistencias</div></div>';
+  html+='<div class="stat-box"><div class="stat-val '+(s.per>3?"amber":"lime")+'">'+s.per+'</div><div class="stat-lbl">Pérdidas</div></div>';
+  html+='<div class="stat-box"><div class="stat-val">'+s.rob+'</div><div class="stat-lbl">Robos</div></div>';
+  html+='<div class="stat-box"><div class="stat-val">'+s.tap+'</div><div class="stat-lbl">Tapas</div></div>';
+  html+='</div></div>';
   html+='<div class="card"><div class="ctitle">Estadísticas avanzadas</div>';
   html+='<div class="adv-grid">';
-  html+='<div class="adv-box"><div class="adv-lbl">% Tiro Campo</div><div class="adv-val">'+fg+'%</div><div class="adv-sub">'+stats.fg_m+'/'+stats.fg_a+' intentos</div></div>';
-  html+='<div class="adv-box"><div class="adv-lbl">% Tiro de 3</div><div class="adv-val">'+fg3+'%</div><div class="adv-sub">'+stats.fg3_m+'/'+stats.fg3_a+' intentos</div></div>';
-  html+='<div class="adv-box"><div class="adv-lbl">True Shooting %</div><div class="adv-val '+(ts>50?"lime":ts>40?"":"amber")+'">'+ts+'%</div><div class="adv-sub">Eficiencia real</div></div>';
-  html+='<div class="adv-box"><div class="adv-lbl">Ast / Pérdidas</div><div class="adv-val '+(astTo>=2?"lime":astTo>=1?"":"amber")+'">'+astTo+'</div><div class="adv-sub">Ratio de decisión</div></div>';
+  html+='<div class="adv-box"><div class="adv-lbl">% Tiro Campo</div><div class="adv-val">'+fg+'%</div><div class="adv-sub">'+s.tc_m+'/'+s.tc_a+' intentos</div></div>';
+  html+='<div class="adv-box"><div class="adv-lbl">% Tiro de 3</div><div class="adv-val">'+fg3+'%</div><div class="adv-sub">'+s.t3_m+'/'+s.t3_a+' intentos</div></div>';
+  html+='<div class="adv-box"><div class="adv-lbl">True Shooting%</div><div class="adv-val '+(ts>50?"lime":ts>40?"":"amber")+'">'+ts+'%</div><div class="adv-sub">Eficiencia real</div></div>';
+  html+='<div class="adv-box"><div class="adv-lbl">Ast/Pérdidas</div><div class="adv-val '+(astTo>=2?"lime":astTo>=1?"":"amber")+'">'+astTo+'</div><div class="adv-sub">Decisión de juego</div></div>';
   html+='</div>';
-
-  // Rebotes
-  html+=pb("Rebote ofensivo",stats.reb_o,5)+pb("Rebote defensivo",stats.reb_d,8);
+  html+=pb("Reb. Ofensivo",s.reb_o,5)+pb("Reb. Defensivo",s.reb_d,8);
   html+='</div>';
-
-  // Asistencia
-  html+='<div class="card"><div class="ctitle">Asistencia a entrenamientos</div>';
-  html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">';
-  html+='<span style="font-size:13px;color:#D4C9A8">Últimos 15 entrenamientos</span>';
-  html+='<span style="font-size:18px;font-weight:900;color:#A8E63D">'+att+'%</span>';
-  html+='</div>';
+  html+='<div class="card"><div class="ctitle">Asistencia · Últimos 15 entrenos</div>';
+  html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:13px;color:#D4C9A8">Presentismo</span><span style="font-size:20px;font-weight:900;color:#A8E63D">'+att+'%</span></div>';
   html+='<div class="att-dots">';
   p.att.forEach(function(v){html+='<div class="att-dot '+(v===1?"p":"a")+'">'+(v===1?"✓":"·")+'</div>';});
-  html+='</div>';
-  html+='<div style="display:flex;gap:12px;margin-top:8px;font-size:11px;color:#6B9C22">';
-  html+='<span>✓ Presente</span><span style="color:#2B5E2E">· Ausente</span>';
   html+='</div></div>';
-
-  // Objetivos
   html+='<div class="card"><div class="ctitle">Mis objetivos</div>';
   p.objs.forEach(function(o){
     html+='<div class="obj-row"><div class="obj-icon">'+o.icon+'</div><div class="obj-info"><div class="obj-name">'+o.name+'</div><div class="obj-type">'+o.type+'</div><div class="obj-bar"><div class="obj-fill" style="width:'+o.pct+'%;background:'+o.color+'"></div></div></div><span style="font-size:13px;font-weight:700;color:'+o.color+';flex-shrink:0;margin-left:8px">'+o.pct+'%</span></div>';
   });
   html+='</div>';
-
-  // AI insight
-  html+='<div class="card"><div class="ctitle">Análisis IA</div>';
-  html+='<div class="insight"><div class="insight-title">🤖 Recomendación de esta semana</div>';
-  html+='<div class="insight-text">Tu ratio Ast/Pérdidas de '+astTo+' puede mejorar. En los partidos donde comés bien antes (más de 2000 kcal el día anterior), tu promedio sube a 2.8. Revisá tu nutrición los días de partido.</div></div>';
-  html+='</div>';
-
+  html+='<div class="card"><div class="ctitle">Análisis IA</div><div class="insight"><div class="insight-title">🤖 Recomendación</div><div class="insight-text">Tu ratio Ast/Pérdidas de '+astTo+' puede mejorar. En los partidos donde comés bien antes (más de 2000 kcal el día anterior), tu promedio sube a 2.8. Revisá tu nutrición los días de partido.</div></div></div>';
   document.getElementById("screen").innerHTML=html;
 }
 
+// ═══════════════════════════════════════════════════════════════
+// PLAYER — MI PLAN
+// ═══════════════════════════════════════════════════════════════
 function renderPlan(){
-  document.getElementById("screen").innerHTML='<div class="card"><div class="ctitle">Plan de comidas · IA</div><p class="tip">Generado según tu peso, posición y objetivo. Solo alimentos económicos.</p><button class="btn" id="plan-btn" onclick="generatePlan()">🤖 Generar mi plan de hoy</button></div><div id="plan-result"></div><div class="card" id="plan-info"><div class="ctitle">Qué considero</div><div class="irow"><span style="font-size:18px">⚖️</span>Peso y talla actuales</div><div class="irow"><span style="font-size:18px">🎯</span>Objetivo: masa muscular</div><div class="irow"><span style="font-size:18px">🏃</span>Posición: Base</div><div class="irow"><span style="font-size:18px">💰</span>Alimentos económicos</div></div>';
+  document.getElementById("screen").innerHTML='<div class="card"><div class="ctitle">Plan de comidas · IA</div><p class="tip">Generado según tu peso, posición y objetivo. Solo alimentos económicos.</p><button class="btn" id="plan-btn" onclick="generatePlan()">🤖 Generar mi plan de hoy</button></div><div id="plan-result"></div><div class="card" id="plan-info"><div class="ctitle">Qué considero</div><div class="irow"><span style="font-size:18px">⚖️</span>Peso y talla actuales</div><div class="irow"><span style="font-size:18px">🎯</span>Objetivo: masa muscular</div><div class="irow"><span style="font-size:18px">🏀</span>Posición: Base</div><div class="irow"><span style="font-size:18px">💰</span>Alimentos económicos</div></div>';
 }
-
 async function generatePlan(){
   document.getElementById("plan-btn").disabled=true;
   document.getElementById("plan-btn").textContent="Generando…";
   var info=document.getElementById("plan-info");if(info)info.style.display="none";
-  document.getElementById("plan-result").innerHTML='<div class="ai-box load">El nutricionista virtual está preparando tu plan…</div>';
-  var txt=await askClaude("Eres nutricionista deportivo para jugadores jóvenes de escasos recursos en Latinoamérica. Jugador: Tomás, 16 años, 62kg, 172cm, base de básquetbol, objetivo masa muscular, meta 2800 kcal y 140g proteína. Generá un plan de 5 comidas para hoy usando SOLO alimentos económicos: huevo, leche, arroz, lentejas, pan, plátano, avena, pollo, atún, papa. Para cada comida: nombre, ingredientes con gramos, calorías y proteína. Sin markdown, texto directo y amigable.");
+  document.getElementById("plan-result").innerHTML='<div class="ai-box load">Preparando tu plan…</div>';
+  var txt=await askClaude("Eres nutricionista deportivo para jugadores jóvenes de escasos recursos en Latinoamérica. Jugador de básquetbol: 16 años, 62kg, 172cm, base, objetivo masa muscular, meta 2800 kcal y 140g proteína. Generá un plan de 5 comidas para hoy usando SOLO alimentos económicos: huevo, leche, arroz, lentejas, pan, plátano, avena, pollo, atún, papa. Para cada comida: nombre, ingredientes con gramos, calorías y proteína. Sin markdown, texto directo y amigable para un adolescente.");
   document.getElementById("plan-result").innerHTML='<div class="ai-box">'+txt+'</div>';
   var btn=document.getElementById("plan-btn");if(btn){btn.disabled=false;btn.textContent="🤖 Generar mi plan de hoy";}
 }
 
 // ═══════════════════════════════════════════════════════════════
-// COACH SCREENS
+// COACH — EQUIPO
 // ═══════════════════════════════════════════════════════════════
-
 function renderCoachTeam(){
   var html='<div class="card"><div class="ctitle">Estado del equipo · Hoy</div>';
   TEAM.forEach(function(p){
     var pc=pct(p.kcal,p.goal);
     var fc=p.s==="ok"?"":p.s==="warn"?"am":"rd";
-    var perVal=per(p.stats);
-    html+='<div class="prow" onclick="selectPlayer('+p.id+')">';
+    var perVal=calcPER(p.stats);
+    html+='<div class="prow" onclick="goToPlayer('+p.id+')">';
     html+='<div class="pav">'+p.e+'</div>';
-    html+='<div style="flex:1"><div class="pn">'+p.n+'</div><div class="ps">'+p.pos+' · PER '+perVal+' · '+pc+'% nutrición</div>';
+    html+='<div style="flex:1"><div class="pn">#'+p.num+' '+p.n+'</div><div class="ps">'+p.pos+' · PER '+perVal+' · Nutrición '+pc+'%</div>';
     html+='<div class="pb" style="margin-top:5px"><div class="pb-fill '+fc+'" style="width:'+pc+'%"></div></div></div>';
     html+='<div class="dot '+p.s+'"></div>';
     html+='</div>';
   });
   html+='</div>';
-  html+='<div id="advice-box"></div>';
-  document.getElementById("screen").innerHTML=html;
-}
 
-function selectPlayer(id){
-  selectedPlayer=id;
-  tab="player";
-  render();
-}
-
-function renderCoachPlayer(){
-  var p=selectedPlayer?TEAM.find(function(x){return x.id===selectedPlayer;}):TEAM[0];
-  var stats=p.stats;
-  var fg=fgpct(stats.fg_m,stats.fg_a);
-  var fg3=fgpct(stats.fg3_m,stats.fg3_a);
-  var ts=tspct(stats);
-  var att=attPct(p.att);
-  var perVal=per(stats);
-  var astTo=stats.to>0?Math.round(stats.ast/stats.to*10)/10:stats.ast;
-  var kcalPct=pct(p.kcal,p.goal);
-
-  // Selector de jugador
-  var html='<div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px">';
-  TEAM.forEach(function(t){
-    var sel=t.id===(p.id);
-    html+='<button onclick="selectPlayer('+t.id+')" style="padding:6px 12px;border-radius:20px;border:1px solid '+(sel?'#A8E63D':'#2B5E2E')+';background:'+(sel?'#A8E63D':'#0D1F0F')+';color:'+(sel?'#0D1F0F':'#D4C9A8')+';font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit">'+t.e+' '+t.n.split(' ')[0]+'</button>';
-  });
-  html+='</div>';
-
-  // Ficha
-  html+='<div class="player-card">';
-  html+='<div class="pc-header">';
-  html+='<div class="pc-avatar">'+p.e+'</div>';
-  html+='<div><div class="pc-name">'+p.n+'</div><div class="pc-pos">'+p.pos+'</div></div>';
-  html+='<div class="per-badge"><div class="per-num">'+perVal+'</div><div class="per-lbl">PER</div></div>';
-  html+='</div>';
-  html+='<div class="stats-grid">';
-  html+='<div class="stat-box"><div class="stat-val">'+stats.pts+'</div><div class="stat-lbl">Puntos</div></div>';
-  html+='<div class="stat-box"><div class="stat-val">'+stats.reb+'</div><div class="stat-lbl">Rebotes</div></div>';
-  html+='<div class="stat-box"><div class="stat-val">'+stats.ast+'</div><div class="stat-lbl">Asistencias</div></div>';
-  html+='<div class="stat-box"><div class="stat-val '+(stats.to>3?"red":stats.to>2?"amber":"lime")+'">'+stats.to+'</div><div class="stat-lbl">Pérdidas</div></div>';
-  html+='<div class="stat-box"><div class="stat-val lime">'+fg+'%</div><div class="stat-lbl">% Campo</div></div>';
-  html+='<div class="stat-box"><div class="stat-val '+(fg3>33?"lime":fg3>25?"amber":"red")+'">'+fg3+'%</div><div class="stat-lbl">% Tres</div></div>';
-  html+='</div></div>';
-
-  // Avanzadas + Nutrición
-  html+='<div class="card"><div class="ctitle">Avanzadas + Nutrición</div>';
-  html+='<div class="adv-grid">';
-  html+='<div class="adv-box"><div class="adv-lbl">True Shooting %</div><div class="adv-val '+(ts>50?"lime":ts>40?"":"amber")+'">'+ts+'%</div><div class="adv-sub">Eficiencia real de tiro</div></div>';
-  html+='<div class="adv-box"><div class="adv-lbl">Ast / Pérdidas</div><div class="adv-val '+(astTo>=2?"lime":astTo>=1?"":"amber")+'">'+astTo+'</div><div class="adv-sub">Decisión bajo presión</div></div>';
-  html+='<div class="adv-box"><div class="adv-lbl">Nutrición hoy</div><div class="adv-val '+(kcalPct>80?"lime":kcalPct>50?"amber":"red")+'">'+kcalPct+'%</div><div class="adv-sub">'+p.kcal+' / '+p.goal+' kcal</div></div>';
-  html+='<div class="adv-box"><div class="adv-lbl">Asistencia</div><div class="adv-val '+(att>80?"lime":att>65?"amber":"red")+'">'+att+'%</div><div class="adv-sub">Último mes</div></div>';
-  html+='</div></div>';
-
-  // Objetivos
-  html+='<div class="card"><div class="ctitle">Objetivos del jugador</div>';
-  p.objs.forEach(function(o){
-    html+='<div class="obj-row"><div class="obj-icon">'+o.icon+'</div><div class="obj-info"><div class="obj-name">'+o.name+'</div><div class="obj-type">'+o.type+'</div><div class="obj-bar"><div class="obj-fill" style="width:'+o.pct+'%;background:'+o.color+'"></div></div></div><span style="font-size:13px;font-weight:700;color:'+o.color+';flex-shrink:0;margin-left:8px">'+o.pct+'%</span></div>';
-  });
-  html+='</div>';
-
-  // IA alert para entrenador
-  html+='<div class="card"><div class="ctitle">Alerta IA para el entrenador</div>';
-  html+='<button class="btn" id="advice-btn" onclick="getAIAdvice('+p.id+')">🤖 Analizar este jugador</button>';
-  html+='<div id="advice-result"></div>';
-  html+='</div>';
-
-  document.getElementById("screen").innerHTML=html;
-}
-
-async function getAIAdvice(id){
-  var p=TEAM.find(function(x){return x.id===id;});
-  var pc=pct(p.kcal,p.goal);
-  var perVal=per(p.stats);
-  var att=attPct(p.att);
-  document.getElementById("advice-btn").disabled=true;
-  document.getElementById("advice-btn").textContent="Analizando…";
-  document.getElementById("advice-result").innerHTML='<div class="ai-box load" style="margin-top:10px">Cruzando estadísticas con nutrición…</div>';
-  var txt=await askClaude("Sos asistente de un entrenador de básquetbol formativo. Jugador: "+p.n+", "+p.pos+". Stats del último partido: "+p.stats.pts+" pts, "+p.stats.reb+" reb, "+p.stats.ast+" ast, "+p.stats.to+" pérdidas. PER: "+perVal+". Asistencia: "+att+"%. Nutrición hoy: "+pc+"% de su meta calórica. Redactá en 4-5 líneas: qué patrones ves, si hay correlación entre nutrición y rendimiento, y DOS acciones concretas y económicas que el entrenador puede pedirle al jugador o a su familia esta semana. Sé directo y práctico.");
-  document.getElementById("advice-result").innerHTML='<div class="ai-box" style="margin-top:10px">'+txt+'</div>';
-  var btn=document.getElementById("advice-btn");if(btn){btn.disabled=false;btn.textContent="🤖 Analizar este jugador";}
-}
-
-function renderCoachSummary(){
-  // Team averages
-  var totalPts=0,totalReb=0,totalAst=0,totalTo=0,totalAtt=0,totalNut=0;
-  TEAM.forEach(function(p){
-    totalPts+=p.stats.pts;totalReb+=p.stats.reb;totalAst+=p.stats.ast;totalTo+=p.stats.to;
-    totalAtt+=attPct(p.att);totalNut+=pct(p.kcal,p.goal);
-  });
-  var n=TEAM.length;
-  var avgPts=Math.round(totalPts/n*10)/10;
-  var avgReb=Math.round(totalReb/n*10)/10;
-  var avgAst=Math.round(totalAst/n*10)/10;
-  var avgTo=Math.round(totalTo/n*10)/10;
-  var avgAtt=Math.round(totalAtt/n);
-  var avgNut=Math.round(totalNut/n);
-
-  var html='<div class="card"><div class="ctitle">Resumen del equipo · Promedios</div>';
-  html+='<div class="coach-summary">';
-  html+='<div class="summary-box"><div class="summary-num">'+avgPts+'</div><div class="summary-lbl">Pts/partido</div><div class="summary-sub">Promedio equipo</div></div>';
-  html+='<div class="summary-box"><div class="summary-num">'+avgReb+'</div><div class="summary-lbl">Reb/partido</div><div class="summary-sub">Promedio equipo</div></div>';
-  html+='<div class="summary-box"><div class="summary-num">'+avgAst+'</div><div class="summary-lbl">Ast/partido</div><div class="summary-sub">Promedio equipo</div></div>';
-  html+='<div class="summary-box"><div class="summary-num '+(avgTo<3?"":"")+'">'+avgTo+'</div><div class="summary-lbl">Pérd/partido</div><div class="summary-sub">Promedio equipo</div></div>';
-  html+='</div></div>';
-
-  // Nutrición y asistencia resumen
-  html+='<div class="card"><div class="ctitle">Compromiso del equipo</div>';
-  html+='<div class="coach-summary">';
-  html+='<div class="summary-box"><div class="summary-num '+(avgAtt>80?"":"")+'">'+avgAtt+'%</div><div class="summary-lbl">Asistencia</div><div class="summary-sub">Promedio equipo</div></div>';
-  html+='<div class="summary-box"><div class="summary-num '+(avgNut>70?"":"")+'">'+avgNut+'%</div><div class="summary-lbl">Nutrición</div><div class="summary-sub">Meta calórica hoy</div></div>';
-  html+='</div>';
-
-  // Alertas
+  // Alertas automáticas
   var alertas=[];
   TEAM.forEach(function(p){
-    var pc=pct(p.kcal,p.goal);
-    if(pc<50)alertas.push('🔴 '+p.n+' lleva solo el '+pc+'% de sus calorías hoy');
-    var att=attPct(p.att);
-    if(att<70)alertas.push('🟡 '+p.n+' tiene solo '+att+'% de asistencia');
+    if(pct(p.kcal,p.goal)<50)alertas.push('🔴 '+p.n+' lleva solo el '+pct(p.kcal,p.goal)+'% de su meta calórica hoy.');
+    if(attPct(p.att)<70)alertas.push('🟡 '+p.n+' tiene '+attPct(p.att)+'% de asistencia. Hablá con él.');
+    if(p.stats.per>3)alertas.push('⚡ '+p.n+' tuvo '+p.stats.per+' pérdidas en el último partido.');
   });
-  if(alertas.length>0){
-    html+='<div style="margin-top:10px">';
-    alertas.forEach(function(a){html+='<div style="font-size:12px;color:#D4C9A8;padding:5px 0;border-bottom:1px solid #2B5E2E">'+a+'</div>';});
+  if(alertas.length){
+    html+='<div class="card"><div class="ctitle">⚠️ Alertas automáticas</div>';
+    alertas.forEach(function(a){html+='<div style="font-size:12px;color:#D4C9A8;padding:6px 0;border-bottom:1px solid #2B5E2E">'+a+'</div>';});
     html+='</div>';
   }
-  html+='</div>';
+  document.getElementById("screen").innerHTML=html;
+}
+function goToPlayer(id){selectedPlayer=id;setTab("summary");}
 
-  // Ranking jugadores por PER
-  html+='<div class="card"><div class="ctitle">Ranking por rendimiento (PER)</div>';
-  var sorted=[...TEAM].sort(function(a,b){return per(b.stats)-per(a.stats);});
-  sorted.forEach(function(p,i){
-    var perVal=per(p.stats);
-    var medals=["🥇","🥈","🥉","4️⃣"];
-    html+='<div class="prow" onclick="selectPlayer('+p.id+')" style="cursor:pointer">';
-    html+='<span style="font-size:20px;flex-shrink:0">'+medals[i]+'</span>';
-    html+='<div style="flex:1"><div class="pn">'+p.n+'</div><div class="ps">'+p.pos+' · '+p.stats.pts+' pts · '+p.stats.reb+' reb · '+p.stats.ast+' ast</div></div>';
-    html+='<span style="font-size:20px;font-weight:900;color:#A8E63D">'+perVal+'</span>';
-    html+='</div>';
+// ═══════════════════════════════════════════════════════════════
+// COACH — CARGAR PARTIDO ← LA NOVEDAD
+// ═══════════════════════════════════════════════════════════════
+function renderMatch(){
+  var p=TEAM.find(function(x){return x.id===matchPlayer;});
+  var s=matchStats[matchPlayer];
+
+  // Selector de jugadores
+  var html='<div class="match-header"><div class="match-vs">vs.</div><div class="match-rival">Rival · Partido oficial</div><div class="match-date">'+new Date().toLocaleDateString("es-AR",{day:"numeric",month:"long"})+'</div></div>';
+
+  html+='<div class="player-selector">';
+  TEAM.forEach(function(t){
+    html+='<button class="psel-btn'+(t.id===matchPlayer?" on":"")+'" onclick="setMatchPlayer('+t.id+')">#'+t.num+' '+t.n.split(" ")[0]+'</button>';
   });
   html+='</div>';
 
-  // IA resumen equipo
-  html+='<div class="card"><div class="ctitle">Análisis IA del equipo</div>';
-  html+='<button class="btn" id="team-btn" onclick="getTeamAnalysis()">🤖 Analizar el equipo</button>';
-  html+='<div id="team-result"></div></div>';
+  // Estadísticas del jugador seleccionado — basadas en la planilla
+  html+='<div class="player-stat-card">';
+  html+='<div class="psc-header"><div class="pav" style="width:36px;height:36px;font-size:16px">'+p.e+'</div><div><div class="psc-name">#'+p.num+' '+p.n+'</div><div class="psc-pos">'+p.pos+'</div></div><div style="margin-left:auto;text-align:center"><div style="font-size:24px;font-weight:900;color:#A8E63D">'+calcPts(s)+'</div><div style="font-size:9px;color:#6B9C22;font-weight:700;letter-spacing:1px">PTS</div></div></div>';
+
+  html+='<div class="stat-counters">';
+
+  // Tiros de campo
+  html+='<div class="counter-box"><div class="counter-lbl">Tiros de campo</div>';
+  html+='<div style="display:flex;gap:4px;align-items:center;margin-bottom:4px"><span style="font-size:10px;color:#6B9C22;width:60px">Convertidos</span><button class="cbtn minus" onclick="dec('+matchPlayer+',\'tc_m\')">−</button><div class="counter-val">'+s.tc_m+'</div><button class="cbtn plus" onclick="inc('+matchPlayer+',\'tc_m\')">+</button></div>';
+  html+='<div style="display:flex;gap:4px;align-items:center"><span style="font-size:10px;color:#6B9C22;width:60px">Intentados</span><button class="cbtn minus" onclick="dec('+matchPlayer+',\'tc_a\')">−</button><div class="counter-val">'+s.tc_a+'</div><button class="cbtn plus" onclick="inc('+matchPlayer+',\'tc_a\')">+</button></div>';
+  html+='<div style="font-size:10px;color:#A8E63D;margin-top:4px;font-weight:700">'+fgp(s.tc_m,s.tc_a)+'% efectividad</div>';
+  html+='</div>';
+
+  // Tiros de 3
+  html+='<div class="counter-box"><div class="counter-lbl">Tiros de 3</div>';
+  html+='<div style="display:flex;gap:4px;align-items:center;margin-bottom:4px"><span style="font-size:10px;color:#6B9C22;width:60px">Convertidos</span><button class="cbtn minus" onclick="dec('+matchPlayer+',\'t3_m\')">−</button><div class="counter-val">'+s.t3_m+'</div><button class="cbtn plus" onclick="inc('+matchPlayer+',\'t3_m\')">+</button></div>';
+  html+='<div style="display:flex;gap:4px;align-items:center"><span style="font-size:10px;color:#6B9C22;width:60px">Intentados</span><button class="cbtn minus" onclick="dec('+matchPlayer+',\'t3_a\')">−</button><div class="counter-val">'+s.t3_a+'</div><button class="cbtn plus" onclick="inc('+matchPlayer+',\'t3_a\')">+</button></div>';
+  html+='<div style="font-size:10px;color:#A8E63D;margin-top:4px;font-weight:700">'+fgp(s.t3_m,s.t3_a)+'% efectividad</div>';
+  html+='</div>';
+
+  // Tiros libres
+  html+='<div class="counter-box"><div class="counter-lbl">Tiros libres</div>';
+  html+='<div style="display:flex;gap:4px;align-items:center;margin-bottom:4px"><span style="font-size:10px;color:#6B9C22;width:60px">Convertidos</span><button class="cbtn minus" onclick="dec('+matchPlayer+',\'tl_m\')">−</button><div class="counter-val">'+s.tl_m+'</div><button class="cbtn plus" onclick="inc('+matchPlayer+',\'tl_m\')">+</button></div>';
+  html+='<div style="display:flex;gap:4px;align-items:center"><span style="font-size:10px;color:#6B9C22;width:60px">Intentados</span><button class="cbtn minus" onclick="dec('+matchPlayer+',\'tl_a\')">−</button><div class="counter-val">'+s.tl_a+'</div><button class="cbtn plus" onclick="inc('+matchPlayer+',\'tl_a\')">+</button></div>';
+  html+='<div style="font-size:10px;color:#A8E63D;margin-top:4px;font-weight:700">'+fgp(s.tl_m,s.tl_a)+'% efectividad</div>';
+  html+='</div>';
+
+  // Rebotes
+  html+='<div class="counter-box"><div class="counter-lbl">Rebotes</div>';
+  html+='<div style="display:flex;gap:4px;align-items:center;margin-bottom:4px"><span style="font-size:10px;color:#6B9C22;width:60px">Ataque</span><button class="cbtn minus" onclick="dec('+matchPlayer+',\'reb_o\')">−</button><div class="counter-val">'+s.reb_o+'</div><button class="cbtn plus" onclick="inc('+matchPlayer+',\'reb_o\')">+</button></div>';
+  html+='<div style="display:flex;gap:4px;align-items:center"><span style="font-size:10px;color:#6B9C22;width:60px">Defensa</span><button class="cbtn minus" onclick="dec('+matchPlayer+',\'reb_d\')">−</button><div class="counter-val">'+s.reb_d+'</div><button class="cbtn plus" onclick="inc('+matchPlayer+',\'reb_d\')">+</button></div>';
+  html+='<div style="font-size:10px;color:#A8E63D;margin-top:4px;font-weight:700">Total: '+(s.reb_o+s.reb_d)+'</div>';
+  html+='</div>';
+
+  // Stats simples
+  var simples=[
+    {key:"ast",lbl:"Asistencias"},
+    {key:"per",lbl:"Pérdidas"},
+    {key:"rob",lbl:"Robos"},
+    {key:"tap",lbl:"Tapas"},
+    {key:"fal",lbl:"Faltas"},
+    {key:"entra",lbl:"Entradas"},
+  ];
+  simples.forEach(function(st){
+    var color=st.key==="per"||st.key==="fal"?"#F5A623":"#F5F0E8";
+    html+='<div class="counter-box"><div class="counter-lbl">'+st.lbl+'</div><div class="counter-row"><button class="cbtn minus" onclick="dec('+matchPlayer+',\''+st.key+'\')">−</button><div class="counter-val" style="color:'+color+'">'+s[st.key]+'</div><button class="cbtn plus" onclick="inc('+matchPlayer+',\''+st.key+'\')">+</button></div></div>';
+  });
+
+  html+='</div></div>'; // cierra stat-counters y player-stat-card
+
+  // Totales del equipo
+  html+='<div class="card"><div class="ctitle">Totales del equipo</div><div class="team-total">';
+  var totalPts=0,totalReb=0,totalAst=0,totalPer=0;
+  TEAM.forEach(function(t){
+    var ms=matchStats[t.id];
+    totalPts+=calcPts(ms);
+    totalReb+=(ms.reb_o+ms.reb_d);
+    totalAst+=ms.ast;
+    totalPer+=ms.per;
+  });
+  html+='<div class="tt-box"><div class="tt-val">'+totalPts+'</div><div class="tt-lbl">Puntos</div></div>';
+  html+='<div class="tt-box"><div class="tt-val">'+totalReb+'</div><div class="tt-lbl">Rebotes</div></div>';
+  html+='<div class="tt-box"><div class="tt-val">'+totalAst+'</div><div class="tt-lbl">Asist.</div></div>';
+  html+='<div class="tt-box"><div class="tt-val" style="color:'+(totalPer>10?"#E84040":"#F5F0E8")+'">'+totalPer+'</div><div class="tt-lbl">Pérdidas</div></div>';
+  html+='</div></div>';
+
+  // Botón IA análisis partido
+  html+='<div class="card"><div class="ctitle">Análisis IA del partido</div><button class="btn" id="match-btn" onclick="analyzeMatch()">🤖 Analizar este partido</button><div id="match-result"></div></div>';
 
   document.getElementById("screen").innerHTML=html;
+}
+
+function setMatchPlayer(id){matchPlayer=id;renderMatch();}
+
+function inc(pid,key){
+  matchStats[pid][key]=(matchStats[pid][key]||0)+1;
+  renderMatch();
+}
+function dec(pid,key){
+  if((matchStats[pid][key]||0)>0)matchStats[pid][key]--;
+  renderMatch();
+}
+
+async function analyzeMatch(){
+  document.getElementById("match-btn").disabled=true;
+  document.getElementById("match-btn").textContent="Analizando…";
+  document.getElementById("match-result").innerHTML='<div class="ai-box load" style="margin-top:10px">Cruzando datos del partido…</div>';
+  var resumen=TEAM.map(function(t){
+    var ms=matchStats[t.id];
+    var pts=calcPts(ms);
+    var reb=ms.reb_o+ms.reb_d;
+    return t.n+': '+pts+'pts, '+reb+'reb, '+ms.ast+'ast, '+ms.per+' pérd, '+fgp(ms.tc_m,ms.tc_a)+'% campo';
+  }).join('. ');
+  var nutResumen=TEAM.map(function(t){return t.n+': '+pct(t.kcal,t.goal)+'% meta nutricional';}).join(', ');
+  var txt=await askClaude("Sos asistente de un entrenador de básquetbol formativo en Argentina. Partido de hoy: "+resumen+". Estado nutricional del día: "+nutResumen+". Analizá en 5-6 líneas: qué funcionó, qué no, si ves correlación entre nutrición y rendimiento, y 3 cosas concretas y económicas para trabajar esta semana. Sé directo y práctico.");
+  document.getElementById("match-result").innerHTML='<div class="ai-box" style="margin-top:10px">'+txt+'</div>';
+  var btn=document.getElementById("match-btn");if(btn){btn.disabled=false;btn.textContent="🤖 Analizar este partido";}
+}
+
+// ═══════════════════════════════════════════════════════════════
+// COACH — RESUMEN
+// ═══════════════════════════════════════════════════════════════
+function renderSummary(){
+  var p=selectedPlayer?TEAM.find(function(x){return x.id===selectedPlayer;}):null;
+
+  if(p){
+    // Vista individual
+    var s=p.stats;
+    var fg=fgp(s.tc_m,s.tc_a);
+    var fg3=fgp(s.t3_m,s.t3_a);
+    var ts=tsp(s);
+    var att=attPct(p.att);
+    var perVal=calcPER(s);
+    var astTo=s.per>0?Math.round(s.ast/s.per*10)/10:s.ast;
+    var kcalPct=pct(p.kcal,p.goal);
+
+    var html='<div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px">';
+    TEAM.forEach(function(t){
+      html+='<button class="psel-btn'+(t.id===p.id?" on":"")+'" onclick="selectP('+t.id+')">#'+t.num+' '+t.n.split(" ")[0]+'</button>';
+    });
+    html+='<button class="psel-btn" onclick="selectP(null)">← Equipo</button>';
+    html+='</div>';
+
+    html+='<div class="player-card"><div class="pc-header">';
+    html+='<div class="pc-avatar">'+p.e+'</div>';
+    html+='<div><div class="pc-name">'+p.n+'</div><div class="pc-pos">'+p.pos+'</div></div>';
+    html+='<div class="per-badge"><div class="per-num">'+perVal+'</div><div class="per-lbl">PER</div></div>';
+    html+='</div>';
+    html+='<div class="stats-grid">';
+    html+='<div class="stat-box"><div class="stat-val">'+s.pts+'</div><div class="stat-lbl">Puntos</div></div>';
+    html+='<div class="stat-box"><div class="stat-val">'+(s.reb_o+s.reb_d)+'</div><div class="stat-lbl">Rebotes</div></div>';
+    html+='<div class="stat-box"><div class="stat-val">'+s.ast+'</div><div class="stat-lbl">Asistencias</div></div>';
+    html+='<div class="stat-box"><div class="stat-val '+(s.per>3?"amber":"lime")+'">'+s.per+'</div><div class="stat-lbl">Pérdidas</div></div>';
+    html+='<div class="stat-box"><div class="stat-val lime">'+fg+'%</div><div class="stat-lbl">% Campo</div></div>';
+    html+='<div class="stat-box"><div class="stat-val '+(fg3>33?"lime":fg3>25?"amber":"red")+'">'+fg3+'%</div><div class="stat-lbl">% Tres</div></div>';
+    html+='</div></div>';
+
+    html+='<div class="card"><div class="ctitle">Avanzadas + Nutrición</div><div class="adv-grid">';
+    html+='<div class="adv-box"><div class="adv-lbl">True Shooting%</div><div class="adv-val '+(ts>50?"lime":ts>40?"":"amber")+'">'+ts+'%</div><div class="adv-sub">Eficiencia real</div></div>';
+    html+='<div class="adv-box"><div class="adv-lbl">Ast/Pérdidas</div><div class="adv-val '+(astTo>=2?"lime":astTo>=1?"":"amber")+'">'+astTo+'</div><div class="adv-sub">Decisión de juego</div></div>';
+    html+='<div class="adv-box"><div class="adv-lbl">Nutrición hoy</div><div class="adv-val '+(kcalPct>80?"lime":kcalPct>50?"amber":"red")+'">'+kcalPct+'%</div><div class="adv-sub">'+p.kcal+'/'+p.goal+' kcal</div></div>';
+    html+='<div class="adv-box"><div class="adv-lbl">Asistencia</div><div class="adv-val '+(att>80?"lime":att>65?"amber":"red")+'">'+att+'%</div><div class="adv-sub">Último mes</div></div>';
+    html+='</div></div>';
+
+    html+='<div class="card"><div class="ctitle">Objetivos</div>';
+    p.objs.forEach(function(o){
+      html+='<div class="obj-row"><div class="obj-icon">'+o.icon+'</div><div class="obj-info"><div class="obj-name">'+o.name+'</div><div class="obj-type">'+o.type+'</div><div class="obj-bar"><div class="obj-fill" style="width:'+o.pct+'%;background:'+o.color+'"></div></div></div><span style="font-size:13px;font-weight:700;color:'+o.color+';flex-shrink:0;margin-left:8px">'+o.pct+'%</span></div>';
+    });
+    html+='</div>';
+    html+='<div class="card"><div class="ctitle">Análisis IA</div><button class="btn" id="adv-btn" onclick="getAdvice('+p.id+')">🤖 Analizar este jugador</button><div id="adv-result"></div></div>';
+    document.getElementById("screen").innerHTML=html;
+    return;
+  }
+
+  // Vista equipo
+  var totalPts=0,totalReb=0,totalAst=0,totalTo=0,totalAtt=0,totalNut=0;
+  TEAM.forEach(function(t){
+    totalPts+=t.stats.pts;totalReb+=(t.stats.reb_o+t.stats.reb_d);totalAst+=t.stats.ast;totalTo+=t.stats.per;
+    totalAtt+=attPct(t.att);totalNut+=pct(t.kcal,t.goal);
+  });
+  var n=TEAM.length;
+  var html='<div class="card"><div class="ctitle">Promedios del equipo</div><div class="coach-summary">';
+  html+='<div class="summary-box"><div class="summary-num">'+Math.round(totalPts/n*10)/10+'</div><div class="summary-lbl">Pts/partido</div></div>';
+  html+='<div class="summary-box"><div class="summary-num">'+Math.round(totalReb/n*10)/10+'</div><div class="summary-lbl">Reb/partido</div></div>';
+  html+='<div class="summary-box"><div class="summary-num">'+Math.round(totalAst/n*10)/10+'</div><div class="summary-lbl">Ast/partido</div></div>';
+  html+='<div class="summary-box"><div class="summary-num">'+Math.round(totalTo/n*10)/10+'</div><div class="summary-lbl">Pérd/partido</div></div>';
+  html+='</div></div>';
+  html+='<div class="card"><div class="ctitle">Compromiso del equipo</div><div class="coach-summary">';
+  html+='<div class="summary-box"><div class="summary-num">'+Math.round(totalAtt/n)+'%</div><div class="summary-lbl">Asistencia</div></div>';
+  html+='<div class="summary-box"><div class="summary-num">'+Math.round(totalNut/n)+'%</div><div class="summary-lbl">Nutrición</div></div>';
+  html+='</div></div>';
+  html+='<div class="card"><div class="ctitle">Ranking por PER</div>';
+  var sorted=[].concat(TEAM).sort(function(a,b){return calcPER(b.stats)-calcPER(a.stats);});
+  sorted.forEach(function(p,i){
+    var medals=["🥇","🥈","🥉","4️⃣"];
+    html+='<div class="prow" onclick="selectP('+p.id+')">';
+    html+='<span style="font-size:20px;flex-shrink:0">'+medals[i]+'</span>';
+    html+='<div style="flex:1"><div class="pn">'+p.n+'</div><div class="ps">'+p.pos+' · '+p.stats.pts+' pts · '+(p.stats.reb_o+p.stats.reb_d)+' reb · '+p.stats.ast+' ast</div></div>';
+    html+='<span style="font-size:20px;font-weight:900;color:#A8E63D">'+calcPER(p.stats)+'</span>';
+    html+='</div>';
+  });
+  html+='</div>';
+  html+='<div class="card"><div class="ctitle">Análisis IA del equipo</div><button class="btn" id="team-btn" onclick="getTeamAnalysis()">🤖 Analizar el equipo</button><div id="team-result"></div></div>';
+  document.getElementById("screen").innerHTML=html;
+}
+
+function selectP(id){selectedPlayer=id;renderSummary();}
+
+async function getAdvice(id){
+  var p=TEAM.find(function(x){return x.id===id;});
+  var pc=pct(p.kcal,p.goal);
+  var perVal=calcPER(p.stats);
+  var att=attPct(p.att);
+  document.getElementById("adv-btn").disabled=true;
+  document.getElementById("adv-btn").textContent="Analizando…";
+  document.getElementById("adv-result").innerHTML='<div class="ai-box load" style="margin-top:10px">Analizando…</div>';
+  var txt=await askClaude("Entrenador de básquetbol formativo en Argentina. Jugador: "+p.n+", "+p.pos+". Stats: "+p.stats.pts+"pts, "+(p.stats.reb_o+p.stats.reb_d)+"reb, "+p.stats.ast+"ast, "+p.stats.per+" pérd. PER: "+perVal+". Asistencia: "+att+"%. Nutrición hoy: "+pc+"%. En 4 líneas: patrones que ves, si hay correlación nutrición-rendimiento, y 2 acciones concretas y económicas para esta semana.");
+  document.getElementById("adv-result").innerHTML='<div class="ai-box" style="margin-top:10px">'+txt+'</div>';
+  var btn=document.getElementById("adv-btn");if(btn){btn.disabled=false;btn.textContent="🤖 Analizar este jugador";}
 }
 
 async function getTeamAnalysis(){
   document.getElementById("team-btn").disabled=true;
   document.getElementById("team-btn").textContent="Analizando…";
   document.getElementById("team-result").innerHTML='<div class="ai-box load" style="margin-top:10px">Analizando el equipo…</div>';
-  var resumen=TEAM.map(function(p){
-    return p.n+": "+p.stats.pts+"pts, "+p.stats.reb+"reb, "+p.stats.ast+"ast, "+p.stats.to+" pérd, nutrición "+pct(p.kcal,p.goal)+"%, asistencia "+attPct(p.att)+"%";
-  }).join(". ");
-  var txt=await askClaude("Sos asistente de un entrenador de básquetbol formativo en Argentina. Stats del equipo: "+resumen+". Identificá 2 fortalezas del equipo, 2 áreas de mejora y 3 acciones concretas y económicas para trabajar esta semana, considerando tanto el rendimiento deportivo como la nutrición. Sé directo y práctico.");
+  var resumen=TEAM.map(function(p){return p.n+": "+p.stats.pts+"pts, "+(p.stats.reb_o+p.stats.reb_d)+"reb, "+p.stats.ast+"ast, "+p.stats.per+" pérd, nutrición "+pct(p.kcal,p.goal)+"%, asistencia "+attPct(p.att)+"%";}).join(". ");
+  var txt=await askClaude("Entrenador de básquetbol formativo en Argentina. Equipo: "+resumen+". 2 fortalezas, 2 áreas de mejora y 3 acciones concretas y económicas para esta semana. Sé directo.");
   document.getElementById("team-result").innerHTML='<div class="ai-box" style="margin-top:10px">'+txt+'</div>';
   var btn=document.getElementById("team-btn");if(btn){btn.disabled=false;btn.textContent="🤖 Analizar el equipo";}
 }
 
 // ═══════════════════════════════════════════════════════════════
-// MODAL AGREGAR COMIDA
+// MODAL COMIDA
 // ═══════════════════════════════════════════════════════════════
 function openModal(){
   var d=document.createElement("div");
@@ -581,12 +641,12 @@ function closeModal(){var d=document.getElementById("modal-overlay");if(d)d.remo
 function selChip(i){
   QUICK_FOODS.forEach(function(_,j){var c=document.getElementById("chip-"+j);if(c)c.className="chip"+(j===i?" on":"");});
   var f=QUICK_FOODS[i];
-  document.getElementById("chip-preview").innerHTML='<div class="ai-box" style="margin-bottom:10px">'+f.e+' '+f.n+' — '+f.k+' kcal · P '+f.p+'g · C '+f.c+'g · G '+f.g+'g</div><button class="btn" style="margin-top:0" onclick="addFood('+i+',true)">Agregar esta comida</button>';
+  document.getElementById("chip-preview").innerHTML='<div class="ai-box" style="margin-bottom:10px">'+f.e+' '+f.n+' — '+f.k+' kcal · P '+f.p+'g</div><button class="btn" style="margin-top:0" onclick="addFood('+i+',true)">Agregar esta comida</button>';
 }
 async function analyzeCustom(){
   var v=document.getElementById("custom-input").value.trim();if(!v)return;
   document.getElementById("custom-preview").innerHTML='<div class="ai-box load" style="margin-top:10px">Analizando…</div>';
-  var r=await askClaude('Nutricionista. El usuario comió: "'+v+'". Respondé SOLO con JSON válido: {"e":"🍽️","n":"nombre corto","k":0,"p":0,"c":0,"g":0}. Valores realistas.');
+  var r=await askClaude('Nutricionista. El usuario comió: "'+v+'". Respondé SOLO con JSON válido: {"e":"🍽️","n":"nombre corto","k":0,"p":0,"c":0,"g":0}.');
   var food;
   try{var clean=r.replace(/```json|```/g,"").trim();food=JSON.parse(clean);}
   catch{food={e:"🍽️",n:v,k:200,p:10,c:25,g:5};}
@@ -625,8 +685,8 @@ function render(){
     else if(tab==="plan")renderPlan();
   } else {
     if(tab==="home")renderCoachTeam();
-    else if(tab==="player")renderCoachPlayer();
-    else if(tab==="summary")renderCoachSummary();
+    else if(tab==="match")renderMatch();
+    else if(tab==="summary")renderSummary();
   }
 }
 render();
